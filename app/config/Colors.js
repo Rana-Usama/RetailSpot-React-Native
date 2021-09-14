@@ -1,6 +1,6 @@
 export default {
   primary: "#FD6721",
-  inputFieldBorder: "#C3D3D4",
+  inputFieldBorder: "rgba(195, 211, 212, 0.9)",
   inputFieldBackgroundColor: "#E2E8F0",
   inputFieldPlaceholder: "#9AA3AE",
   white: "#fff",

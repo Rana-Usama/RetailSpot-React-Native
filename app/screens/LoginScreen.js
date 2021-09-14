@@ -52,47 +52,22 @@ function LoginScreen(props) {
       <LoadingModal show={indicator} />
 
       {/* Logo */}
-      <View style={{ marginTop: RFPercentage(6) }}>
-        <Image
-          source={require("../assets/logo.png")}
-          style={{ width: RFPercentage(40), height: RFPercentage(40) }}
-        />
+      <View style={{ marginBottom: RFPercentage(3) }}>
+        <Image source={require("../../assets/images/logo.png")} />
       </View>
 
-      {/* ReatilSpot Text */}
-      <Text
-        style={{
-          color: Colors.lightOrange,
-          fontSize: RFPercentage(3.4),
-          bottom: RFPercentage(17),
-        }}
-      >
-        RetailSpot
-      </Text>
 
       {/*  Store Owner's App Text */}
-      <Text
-        style={{
-          color: Colors.lightBlack,
-          fontSize: RFPercentage(1.9),
-          bottom: RFPercentage(14),
-        }}
-      >
+      <Text style={{ color: Colors.lightBlack, fontSize: RFPercentage(1.9) }}>
         Store Owner's App
       </Text>
 
       {/* InputFields */}
-      <View
-        style={{
-          width: "100%",
-          alignItems: "center",
-          marginTop: RFPercentage(3),
-          bottom: RFPercentage(10),
-        }}
-      >
+      <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(7) }}>
         {inputField.map((item, i) => (
           <InputField
             key={i}
+            textCenter={"center"}
             secure={item.secure}
             placeholder={item.placeholder}
             // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
@@ -105,56 +80,35 @@ function LoginScreen(props) {
       </View>
 
       {/* Login Button */}
-      <View
-        style={{
-          width: "100%",
-          alignItems: "center",
-          bottom: RFPercentage(6.9),
-        }}
-      >
+      <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(2) }}>
         <MyAppButton
           title="Login"
           onPress={() => handleLogin()}
           backgroundColor={Colors.primary}
-          width={RFPercentage(26)}
           color={Colors.white}
           width={"85%"}
         />
       </View>
 
-      <View
-        style={{
-          width: "90%",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          bottom: RFPercentage(6),
-        }}
-      >
-        {/* forget password */}
+      {/* forget password */}
+      <View style={{ marginTop: RFPercentage(2), width: "90%", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center" }}>
         <TouchableOpacity>
-          <Text style={{ color: Colors.inputFieldBorder, fontWeight: "400" }}>
+          <Text style={{ fontSize: RFPercentage(2), color: Colors.inputFieldBorder, fontWeight: "400" }}>
             Forget Password
           </Text>
         </TouchableOpacity>
-        <View
-          style={{
-            height: RFPercentage(5),
-            backgroundColor: Colors.inputFieldBorder,
-            width: 2,
-          }}
-        ></View>
+
+
+        <View style={{ height: RFPercentage(2.5), backgroundColor: "rgba(195, 211, 212, 0.5)", width: 1, }}></View>
 
         {/* create account */}
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate("SignupScreen")}
-        >
-          <Text style={{ color: Colors.inputFieldBorder, fontWeight: "400" }}>
+        <TouchableOpacity onPress={() => props.navigation.navigate("SignupScreen")} >
+          <Text style={{ fontSize: RFPercentage(2), color: Colors.inputFieldBorder, fontWeight: "400" }}>
             Create an account
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </View >
   );
 }
 
@@ -162,7 +116,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
   },
 });

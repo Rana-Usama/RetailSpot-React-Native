@@ -7,15 +7,16 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import Colors from "../../config/Colors";
 
 function InputField({
-  onTouchStart = () => {},
-  onTouchEnd = () => {},
+  onTouchStart = () => { },
+  onTouchEnd = () => { },
   placeholder,
   handleFeild,
   borderColor = Colors.inputFieldBorder,
-  borderWidth = RFPercentage(0.2),
+  borderWidth = 1,
   borderRadius = RFPercentage(10),
   backgroundColor = Colors.white,
   keyboardType = "default",
+  textCenter = "left",
   width,
   value,
   secure = false,
@@ -24,20 +25,7 @@ function InputField({
   const [eyeIcon, setEyeIcon] = useState(false);
 
   return (
-    <View
-      style={{
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "row",
-        backgroundColor: backgroundColor,
-        borderColor: borderColor,
-        borderWidth: borderWidth,
-        width: width,
-        height: RFPercentage(7.5),
-        borderRadius: borderRadius,
-        marginVertical: RFPercentage(1),
-      }}
-    >
+    <View style={{ alignItems: "center", justifyContent: "center", flexDirection: "row", backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: borderWidth, width: width, height: RFPercentage(6.8), borderRadius: borderRadius, marginVertical: RFPercentage(0.7), }} >
       <TextInput
         placeholder={placeholder}
         onChangeText={(text) => handleFeild(text)}
@@ -46,12 +34,12 @@ function InputField({
         value={value}
         keyboardType={keyboardType}
         secureTextEntry={secure && !eyeIcon}
+        textAlign={textCenter}
         style={{
           color: "black",
           alignSelf: "center",
-          left: RFPercentage(2),
           fontSize: RFPercentage(2.5),
-          width: secure ? "90%" : "100%",
+          width: "90%",
         }}
         {...otherProps}
       ></TextInput>
@@ -60,9 +48,8 @@ function InputField({
         <TouchableOpacity
           onPress={() => setEyeIcon(!eyeIcon)}
           style={{
-            width: "10%",
-            justifyContent: "center",
-            alignItems: "flex-start",
+            position: "absolute",
+            right: RFPercentage(1),
           }}
         >
           <MaterialCommunityIcons
