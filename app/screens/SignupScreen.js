@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Dimensions } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { Ionicons } from "@expo/vector-icons";
 import Constants from "expo-constants";
@@ -9,6 +9,8 @@ import InputField from "../components/common/InputField";
 
 //config
 import Colors from "../config/Colors";
+
+const { height } = Dimensions.get("window")
 
 function SignupScreen(props) {
   const [inputField, SetInputField] = useState([
@@ -26,41 +28,14 @@ function SignupScreen(props) {
   };
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}  >
       {/* PathImage */}
-      <View
-        style={{
-          width: "100%",
-          position: "absolute",
-          top: 0,
-          paddingTop: Constants.statusBarHeight,
-        }}
-      >
-        <Image
-          source={require("../assets/path.png")}
-          style={{
-            width: RFPercentage(50),
-            height: RFPercentage(45),
-            marginRight: RFPercentage(0),
-            marginLeft: RFPercentage(12),
-          }}
-        ></Image>
+      <View style={{ position: "absolute", top: 0, right: 0, paddingTop: Constants.statusBarHeight, }}>
+        <Image source={require("../../assets/images/path1.png")} />
       </View>
+
       {/* BackIcon */}
-      <View
-        style={{
-          alignSelf: "flex-start",
-          position: "absolute",
-          top: RFPercentage(17),
-          left: RFPercentage(5),
-        }}
-      >
+      <View style={{ alignSelf: "flex-start", position: "absolute", top: RFPercentage(10), left: RFPercentage(4), }} >
         <Ionicons
           name="arrow-back"
           size={40}
@@ -74,43 +49,32 @@ function SignupScreen(props) {
       </View>
 
       {/* Heading */}
-      <View
-        style={{
-          alignSelf: "flex-start",
-          position: "absolute",
-          top: RFPercentage(43),
-          left: RFPercentage(5),
-        }}
-      >
-        <Text style={{ fontSize: RFPercentage(4) }}>What is your </Text>
-        <Text style={{ fontSize: RFPercentage(4) }}>phone number ? </Text>
-      </View>
+      <View style={{ width: "85%", position: "absolute", top: height / 2.5 }} >
+        <View style={{ alignSelf: "flex-start", }}>
+          <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}>What is your </Text>
+          <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}>phone number ? </Text>
+        </View>
 
-      {/* InputField */}
-      <View
-        style={{
-          alignSelf: "flex-start",
-          position: "absolute",
-          top: RFPercentage(57),
-          left: RFPercentage(5),
-        }}
-      >
+        {/* InputField */}
         {inputField.map((item, i) => (
-          <InputField
-            key={i}
-            secure={item.secure}
-            placeholder={item.placeholder}
-            keyboardType={item.type}
-            backgroundColor={Colors.inputFieldBackgroundColor}
-            borderRadius={RFPercentage(1)}
-            // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
-            // onTouchEnd={() => setFeildMarginBottom(0)}
-            handleFeild={(text) => handleChange(text, i)}
-            value={item.value}
-            width={"85%"}
-          />
+          <View key={i} style={{ marginTop: RFPercentage(3) }} >
+            <InputField
+              secure={item.secure}
+              placeholder={item.placeholder}
+              keyboardType={item.type}
+              backgroundColor={Colors.inputFieldBackgroundColor}
+              borderRadius={RFPercentage(1)}
+              // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
+              // onTouchEnd={() => setFeildMarginBottom(0)}
+              handleFeild={(text) => handleChange(text, i)}
+              value={item.value}
+              width={"100%"}
+            />
+          </View>
         ))}
       </View>
+
+
     </View>
   );
 }
