@@ -69,9 +69,24 @@ function SignupScreen(props) {
               handleFeild={(text) => handleChange(text, i)}
               value={item.value}
               width={"100%"}
+              handleClear={true}
             />
           </View>
         ))}
+
+        {/* BackIcon */}
+        <View style={{ alignSelf: "flex-end" }} >
+          <Ionicons
+            name="arrow-forward"
+            size={40}
+            color={Colors.primary}
+            style={{
+              fontSize: RFPercentage(3),
+              fontWeight: "bold",
+            }}
+            onPress={() => props.navigation.navigate("LoginScreen")}
+          />
+        </View>
       </View>
 
 
