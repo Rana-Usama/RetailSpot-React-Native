@@ -29,8 +29,8 @@ function InputField({
       <TextInput
         placeholder={placeholder}
         onChangeText={(text) => handleFeild(text)}
-        onResponderStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
+        // onResponderStart={onTouchStart}
+        onEndEditing={onTouchEnd}
         value={value}
         keyboardType={keyboardType}
         secureTextEntry={secure && !eyeIcon}
