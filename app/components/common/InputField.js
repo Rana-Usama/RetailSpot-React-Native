@@ -20,6 +20,7 @@ function InputField({
   width,
   value,
   secure = false,
+  handleClear = false,
   ...otherProps
 }) {
   const [eyeIcon, setEyeIcon] = useState(false);
@@ -30,28 +31,28 @@ function InputField({
         placeholder={placeholder}
         onChangeText={(text) => handleFeild(text)}
         // onResponderStart={onTouchStart}
-        onEndEditing={onTouchEnd}
+        // onEndEditing={onTouchEnd}
         value={value}
         keyboardType={keyboardType}
         secureTextEntry={secure && !eyeIcon}
         textAlign={textCenter}
-        style={{
-          color: "black",
-          alignSelf: "center",
-          fontSize: RFPercentage(2.5),
-          width: "90%",
-        }}
+        style={{ color: "black", alignSelf: "center", fontSize: RFPercentage(2.5), width: "90%" }}
         {...otherProps}
       ></TextInput>
 
+      {handleClear && value.length > 0 ? (
+        <TouchableOpacity onPress={() => handleFeild('')} style={{ position: "absolute", right: RFPercentage(1), }}>
+          <MaterialCommunityIcons
+            color={Colors.inputFieldBorder}
+            style={{ right: RFPercentage(1) }}
+            size={RFPercentage(3)}
+            name="close"
+          />
+        </TouchableOpacity>
+      ) : null}
+
       {secure ? (
-        <TouchableOpacity
-          onPress={() => setEyeIcon(!eyeIcon)}
-          style={{
-            position: "absolute",
-            right: RFPercentage(1),
-          }}
-        >
+        <TouchableOpacity onPress={() => setEyeIcon(!eyeIcon)} style={{ position: "absolute", right: RFPercentage(1), }}>
           <MaterialCommunityIcons
             color={eyeIcon ? Colors.black : Colors.inputFieldBorder}
             style={{ right: RFPercentage(1) }}
