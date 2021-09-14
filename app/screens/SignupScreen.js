@@ -68,7 +68,7 @@ function SignupScreen(props) {
               backgroundColor={Colors.inputFieldBackgroundColor}
               borderRadius={RFPercentage(1)}
               // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
-              // onTouchEnd={() => setFeildMarginBottom(0)}
+              onTouchEnd={() => console.log("here1")}
               handleFeild={(text) => handleChange(text, i)}
               value={item.value}
               width={"100%"}
