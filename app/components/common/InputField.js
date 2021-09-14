@@ -13,6 +13,9 @@ function InputField({
   handleFeild,
   borderColor = Colors.inputFieldBorder,
   borderWidth = RFPercentage(0.2),
+  borderRadius = RFPercentage(10),
+  backgroundColor = Colors.white,
+  keyboardType = "default",
   width,
   value,
   secure = false,
@@ -26,12 +29,12 @@ function InputField({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "row",
-        backgroundColor: Colors.white,
+        backgroundColor: backgroundColor,
         borderColor: borderColor,
         borderWidth: borderWidth,
         width: width,
         height: RFPercentage(7.5),
-        borderRadius: RFPercentage(10),
+        borderRadius: borderRadius,
         marginVertical: RFPercentage(1),
       }}
     >
@@ -41,6 +44,7 @@ function InputField({
         onResponderStart={onTouchStart}
         onTouchEnd={onTouchEnd}
         value={value}
+        keyboardType={keyboardType}
         secureTextEntry={secure && !eyeIcon}
         style={{
           color: "black",

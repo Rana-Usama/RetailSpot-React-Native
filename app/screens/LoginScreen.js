@@ -7,6 +7,7 @@ import InputField from "../components/common/InputField";
 import Colors from "../config/Colors";
 import LoadingModal from "./../components/common/LoadingModel";
 import MyAppButton from "./../components/common/MyAppButton";
+import SignupScreen from "./SignupScreen";
 
 function LoginScreen(props) {
   const [indicator, showIndicator] = useState(false);
@@ -146,7 +147,9 @@ function LoginScreen(props) {
         ></View>
 
         {/* create account */}
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("SignupScreen")}
+        >
           <Text style={{ color: Colors.inputFieldBorder, fontWeight: "400" }}>
             Create an account
           </Text>
