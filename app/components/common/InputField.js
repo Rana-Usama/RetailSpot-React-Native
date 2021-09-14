@@ -30,7 +30,7 @@ function InputField({
         borderColor: borderColor,
         borderWidth: borderWidth,
         width: width,
-        height: RFPercentage(8),
+        height: RFPercentage(7.5),
         borderRadius: RFPercentage(10),
         marginVertical: RFPercentage(1),
       }}

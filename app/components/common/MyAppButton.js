@@ -19,7 +19,7 @@ function MyAppButton({
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "center", //most important
-        padding: RFPercentage(2.3),
+        padding: RFPercentage(2),
       }}
     >
       <Text

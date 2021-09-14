@@ -86,6 +86,7 @@ function LoginScreen(props) {
         style={{
           width: "100%",
           alignItems: "center",
+          marginTop: RFPercentage(3),
           bottom: RFPercentage(10),
         }}
       >
