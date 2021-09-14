@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
-import InputField from "../components/common/InputField";
 
 //config
 import Colors from "../config/Colors";
 import LoadingModal from "./../components/common/LoadingModel";
+import InputField from "../components/common/InputField";
 import MyAppButton from "./../components/common/MyAppButton";
-import SignupScreen from "./SignupScreen";
 
 function LoginScreen(props) {
   const [indicator, showIndicator] = useState(false);

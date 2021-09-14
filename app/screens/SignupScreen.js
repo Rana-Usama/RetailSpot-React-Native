@@ -45,13 +45,14 @@ function SignupScreen(props) {
         <Image
           source={require("../assets/path.png")}
           style={{
-            width: RFPercentage(50),
-            height: RFPercentage(45),
+            width: RFPercentage(45),
+            height: RFPercentage(40),
             marginRight: RFPercentage(0),
-            marginLeft: RFPercentage(12),
+            marginLeft: RFPercentage(15),
           }}
         ></Image>
       </View>
+
       {/* BackIcon */}
       <View
         style={{
@@ -73,7 +74,7 @@ function SignupScreen(props) {
         />
       </View>
 
-      {/* Heading */}
+      {/* Headings */}
       <View
         style={{
           alignSelf: "flex-start",
@@ -98,7 +99,6 @@ function SignupScreen(props) {
         {inputField.map((item, i) => (
           <InputField
             key={i}
-            secure={item.secure}
             placeholder={item.placeholder}
             keyboardType={item.type}
             backgroundColor={Colors.inputFieldBackgroundColor}
@@ -107,7 +107,7 @@ function SignupScreen(props) {
             // onTouchEnd={() => setFeildMarginBottom(0)}
             handleFeild={(text) => handleChange(text, i)}
             value={item.value}
-            width={"85%"}
+            width={"90%"}
           />
         ))}
       </View>
