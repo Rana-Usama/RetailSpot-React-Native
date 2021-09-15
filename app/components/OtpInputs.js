@@ -57,7 +57,7 @@ export default class OtpInputs extends Component {
         return (
             <View style={styles.container}>
                 <OTPTextView
-                    handleTextChange={(e) => getOtp(e)}
+                    handleTextChange={(e) => this.props.getOtp(e)}
                     inputCount={6}
                     containerStyle={{}}
                     textInputStyle={styles.roundedTextInput}
