@@ -7,7 +7,8 @@ import { LibreBaskerville_400Regular } from "@expo-google-fonts/libre-baskervill
 import { RFPercentage } from "react-native-responsive-fontsize";
 
 
-//components
+//screens
+import SplashScreen from "./app/screens/SplashScreen";
 import LoginScreen from "./app/screens/LoginScreen";
 import SignupScreen from "./app/screens/SignupScreen";
 import Colors from "./app/config/Colors";
@@ -33,7 +34,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="LoginScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="SplashScreen">
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
         <Stack.Screen name="LoginNumberScreen" component={LoginNumberScreen} />

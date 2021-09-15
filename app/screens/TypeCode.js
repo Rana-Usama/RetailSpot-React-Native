@@ -4,7 +4,7 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 
 //components
 import InputField from '../components/common/InputField';
-import Nav from '../components/common/Nav';
+import MyAppBar from '../components/common/MyAppBar';
 import MyAppButton from './../components/common/MyAppButton';
 
 //config
@@ -60,7 +60,7 @@ function TypeCode(props) {
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             {/* NavBar */}
-            <Nav onPress={() => props.navigation.navigate("SentCodeScreen")} />
+            <MyAppBar onPress={() => props.navigation.navigate("SentCodeScreen")} />
 
             {/* Heading */}
             <View style={{ marginTop: RFPercentage(22) }}>
