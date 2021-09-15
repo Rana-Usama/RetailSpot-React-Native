@@ -58,19 +58,16 @@ function SignupStep2(props) {
             showIndicator(false);
             return true;
         }
-        if (!tempfeilds[1].value.includes("@")) {
+
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(tempfeilds[1].value)) {
             setShowEmailWarning(true);
-            showIndicator(false);
-            return true;
-        }
-        if (tempfeilds[1].value.includes("@")) {
-            setShowEmailWarning(false);
             showIndicator(false);
             return true;
         }
 
         try {
             // API integration will come here
+            props.navigation.navigate('WelcomeScreen');
         } catch (error) {
             alert("Login Error");
         }
@@ -116,7 +113,7 @@ function SignupStep2(props) {
                     </View>
                     {/* InputFields */}
                     {inputField.map((item, i) => (
-                        <View key={i} style={{ marginTop: RFPercentage(2) }} >
+                        <View key={i} style={{ marginTop: RFPercentage(i === 0 ? 5 : 2) }} >
                             <Text style={{ fontSize: RFPercentage(2.5), bottom: RFPercentage(0.5) }}>{item.title}</Text>
                             <InputField
                                 placeholder={item.placeholder}
@@ -135,7 +132,7 @@ function SignupStep2(props) {
                     ))}
 
                     {/* Joinnow button */}
-                    <View style={{ width: "100%", alignItems: "center" }}>
+                    <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(4) }}>
                         <MyAppButton
                             title="JOIN NOW"
                             padding={RFPercentage(3)}

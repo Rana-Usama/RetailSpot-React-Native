@@ -1,16 +1,20 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, Dimensions } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import Colors from '../config/Colors';
+
+
 import MyAppButton from './../components/common/MyAppButton';
-import { LibreBaskerville_400Regular } from '@expo-google-fonts/libre-baskerville';
+
+import Colors from '../config/Colors';
+
+const { height, width } = Dimensions.get('window')
 
 function WelcomeScreen(props) {
     return (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}  >
             {/* PathImage */}
             <View style={{ position: "absolute", top: 0, right: 0 }}>
-                <Image source={require("../../assets/images/path1.png")} style={{ width: RFPercentage(60), height: RFPercentage(50) }} />
+                <Image source={require("../../assets/images/path2.png")} style={{ width, height: RFPercentage(40) }} />
             </View>
 
             {/* Text */}
@@ -21,9 +25,9 @@ function WelcomeScreen(props) {
             <View style={{ width: "100%", alignItems: "center", position: 'absolute', bottom: RFPercentage(8) }}>
                 <MyAppButton
                     title="CONTINUE"
-                    padding={RFPercentage(3)}
+                    padding={RFPercentage(2.5)}
                     bold={false}
-                    // onPress={() => props.navigation.navigate("WelcomeScreen")}
+                    onPress={() => props.navigation.navigate("HomeScreen")}
                     backgroundColor={Colors.primary}
                     color={Colors.white}
                     width={"98%"}
