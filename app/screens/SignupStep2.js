@@ -17,6 +17,8 @@ const { height } = Dimensions.get("window")
 
 function SignupStep2(props) {
     const [indicator, showIndicator] = useState(false);
+    const [showEmailWarning, setShowEmailWarning] = useState(false)
+
     const [inputField, SetInputField] = useState([
         {
             placeholder: "Name",
@@ -27,6 +29,8 @@ function SignupStep2(props) {
         {
             placeholder: "Type your email",
             title: 'Email',
+            warning: 'Please check your email format',
+            redBorder: true,
             // type: "numeric",
             value: "",
         },
@@ -45,7 +49,6 @@ function SignupStep2(props) {
 
     };
 
-    //Right now i have apllied navigation temporary
     const handleLogin = () => {
         showIndicator(true);
         let tempfeilds = [...inputField];
@@ -56,7 +59,12 @@ function SignupStep2(props) {
             return true;
         }
         if (!tempfeilds[1].value.includes("@")) {
-            alert("Please write valid email");
+            setShowEmailWarning(true);
+            showIndicator(false);
+            return true;
+        }
+        if (tempfeilds[1].value.includes("@")) {
+            setShowEmailWarning(false);
             showIndicator(false);
             return true;
         }
@@ -100,44 +108,46 @@ function SignupStep2(props) {
                     />
                 </View>
 
-                <View style={{ width: "85%", marginTop: RFPercentage(25) }} >
+                <View style={{ width: "85%", marginTop: RFPercentage(22) }} >
                     {/* Heading */}
                     <View style={{ alignSelf: "flex-start", }}>
                         <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}>Welcome to </Text>
                         <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}>RetailSpot! </Text>
                     </View>
-
                     {/* InputFields */}
                     {inputField.map((item, i) => (
-                        <View key={i} style={{ marginTop: RFPercentage(i === 0 ? 6 : 2.5) }} >
+                        <View key={i} style={{ marginTop: RFPercentage(2) }} >
                             <Text style={{ fontSize: RFPercentage(2.5), bottom: RFPercentage(0.5) }}>{item.title}</Text>
                             <InputField
                                 placeholder={item.placeholder}
                                 secure={item.secure}
                                 keyboardType={item.type}
                                 backgroundColor={Colors.inputFieldBackgroundColor}
+                                borderColor={showEmailWarning && item.redBorder ? "red" : Colors.inputFieldBorder}
                                 borderRadius={RFPercentage(1)}
+                                // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
+                                onTouchEnd={() => console.log("here1")}
                                 handleFeild={(text) => handleChange(text, i)}
                                 value={item.value}
                                 width={"100%"}
                             />
+                            {showEmailWarning ? <Text style={{ color: 'red' }}>{item.warning}</Text> : null}
                         </View>
                     ))}
-                </View>
 
-                {/* Joinnow button */}
-                <View style={{ width: "95%", alignItems: "center", marginTop: RFPercentage(4) }}>
-                    <MyAppButton
-                        title="JOIN NOW"
-                        padding={RFPercentage(2)}
-                        bold={false}
-                        onPress={() => props.navigation.navigate("WelcomeScreen")}
-                        backgroundColor={Colors.primary}
-                        color={Colors.white}
-                        width={"98%"}
-                    />
+                    {/* Joinnow button */}
+                    <View style={{ width: "100%", alignItems: "center" }}>
+                        <MyAppButton
+                            title="JOIN NOW"
+                            padding={RFPercentage(3)}
+                            bold={false}
+                            onPress={() => handleLogin()}
+                            backgroundColor={Colors.primary}
+                            color={Colors.white}
+                            width={"98%"}
+                        />
+                    </View>
                 </View>
-
             </View>
         </KeyboardAvoidingView>
     );
