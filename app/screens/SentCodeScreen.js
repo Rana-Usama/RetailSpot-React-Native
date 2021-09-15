@@ -11,12 +11,14 @@ const { height } = Dimensions.get("window")
 
 function SentCodeScreen(props) {
     return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <View style={{ flex: 1 }} >
             {/* navbar */}
-            <MyAppBar onPress={() => props.navigation.navigate("LoginNumberScreen")} />
-            <TouchableOpacity onPress={() => props.navigation.navigate("TypeCode")}>
-                <Image source={require('../../assets/images/hand.png')} style={{ top: height / 12, width: RFPercentage(35), height: RFPercentage(40) }} ></Image>
-            </TouchableOpacity>
+            <MyAppBar props={props} backPath="LoginNumberScreen" />
+            <View style={{ flex: 1, justifyContent: "center", alignItems: 'center' }} >
+                <TouchableOpacity onPress={() => props.navigation.navigate("TypeCode")}>
+                    <Image source={require('../../assets/images/hand.png')} style={{ marginBottom: RFPercentage(4), width: RFPercentage(25), height: RFPercentage(30) }} ></Image>
+                </TouchableOpacity>
+            </View>
         </View>
 
     );
