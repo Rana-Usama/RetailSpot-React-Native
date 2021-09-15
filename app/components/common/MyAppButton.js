@@ -5,7 +5,9 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 function MyAppButton({
   title,
   onPress,
+  bold = true,
   backgroundColor,
+  padding = RFPercentage(2),
   width = "100%",
   color,
 }) {
@@ -19,14 +21,14 @@ function MyAppButton({
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "center", //most important
-        padding: RFPercentage(2),
+        padding: padding,
       }}
     >
       <Text
         style={{
           fontSize: RFPercentage(2.5),
           color: color,
-          fontWeight: "bold",
+          fontWeight: bold ? "bold" : null,
         }}
       >
         {title}

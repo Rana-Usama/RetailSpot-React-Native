@@ -7,4 +7,5 @@ export default {
   black: "black",
   lightOrange: "#FFA40B",
   lightBlack: "#080808",
+  codeInputFields: '#E6E9F1'
 };

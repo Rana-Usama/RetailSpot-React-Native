@@ -3,6 +3,7 @@ import { View, TextInput, TouchableOpacity } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+
 //config
 import Colors from "../../config/Colors";
 

@@ -30,7 +30,6 @@ function SignupScreen(props) {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}  >
       {/* PathImage */}
-
       <View style={{ position: "absolute", top: 0, right: 0, paddingTop: Constants.statusBarHeight, }}>
         <Image source={require("../../assets/images/path1.png")} />
       </View>
@@ -59,10 +58,8 @@ function SignupScreen(props) {
 
         {/* InputField */}
         {inputField.map((item, i) => (
-
           <View key={i} style={{ marginTop: RFPercentage(3) }} >
             <InputField
-              secure={item.secure}
               placeholder={item.placeholder}
               keyboardType={item.type}
               backgroundColor={Colors.inputFieldBackgroundColor}
@@ -77,17 +74,17 @@ function SignupScreen(props) {
           </View>
         ))}
 
-        {/* BackIcon */}
+        {/* Forward */}
         <View style={{ alignSelf: "flex-end" }} >
           <Ionicons
-            name="arrow-forward"
-            size={40}
+            name="arrow-forward-circle-sharp"
+            size={55}
             color={Colors.primary}
             style={{
-              fontSize: RFPercentage(3),
+              fontSize: RFPercentage(3.8),
               fontWeight: "bold",
             }}
-            onPress={() => props.navigation.navigate("LoginScreen")}
+            onPress={() => props.navigation.navigate("LoginNumberScreen")}
           />
         </View>
       </View>
