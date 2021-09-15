@@ -125,7 +125,6 @@ function SignupStep2(props) {
                                 backgroundColor={Colors.inputFieldBackgroundColor}
                                 borderColor={showEmailWarning && item.redBorder ? "red" : Colors.inputFieldBorder}
                                 borderRadius={RFPercentage(1)}
-                                // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
                                 onTouchEnd={() => console.log("here1")}
                                 handleFeild={(text) => handleChange(text, i)}
                                 value={item.value}
