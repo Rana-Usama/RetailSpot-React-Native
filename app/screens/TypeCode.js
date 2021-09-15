@@ -3,8 +3,8 @@ import { Text, View } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
 //components
-import InputField from '../components/common/InputField';
-import Nav from '../components/common/Nav';
+import OtpInputs from "../components/OtpInputs";
+import MyAppBar from '../components/common/MyAppBar';
 import MyAppButton from './../components/common/MyAppButton';
 
 //config
@@ -12,58 +12,15 @@ import Colors from '../config/Colors';
 
 function TypeCode(props) {
 
-    const [inputField, SetInputField] = useState([
-        {
-            placeholder: "",
-            type: "numeric",
-            value: "",
-        },
-        {
-            placeholder: "",
-            type: "numeric",
-            value: "",
-        },
-        {
-            placeholder: "",
-            type: "numeric",
-            value: "",
-        },
-        {
-            placeholder: "",
-            type: "numeric",
-            value: "",
-        },
-        {
-            placeholder: "",
-            type: "numeric",
-            value: "",
-        },
-        {
-            placeholder: "",
-            type: "numeric",
-            value: "",
-        },
-
-
-    ]);
-
-    const handleChange = (text, i) => {
-        if (i === 0 && text.length > 1) {
-            alert("Only one digit in one field");
-            return;
-        }
-        let tempfeilds = [...inputField];
-        tempfeilds[i].value = text;
-        SetInputField(tempfeilds);
-    };
+    const [otp, setOtp] = useState();
 
     return (
         <View style={{ flex: 1, alignItems: 'center' }}>
             {/* NavBar */}
-            <Nav onPress={() => props.navigation.navigate("SentCodeScreen")} />
+            <MyAppBar onPress={() => props.navigation.navigate("SentCodeScreen")} />
 
             {/* Heading */}
-            <View style={{ marginTop: RFPercentage(22) }}>
+            <View style={{ marginTop: RFPercentage(5) }}>
                 <Text style={{ fontSize: RFPercentage(3) }}>Enter your code</Text>
             </View>
 
@@ -77,18 +34,7 @@ function TypeCode(props) {
 
             {/* CodeInput Fields */}
             <View style={{ width: '90%', flexDirection: 'row', marginTop: RFPercentage(3), justifyContent: 'space-evenly' }}>
-                {inputField.map((item, i) => (
-                    <InputField
-                        key={i}
-                        placeholder={item.placeholder}
-                        keyboardType={item.type}
-                        backgroundColor={Colors.codeInputFields}
-                        borderRadius={RFPercentage(1.2)}
-                        handleFeild={(text) => handleChange(text, i)}
-                        value={item.value}
-                        width={"15%"}
-                    />
-                ))}
+                <OtpInputs getOtp={(otp) => setOtp(otp)} />
             </View>
 
             {/* Continue Button */}

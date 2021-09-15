@@ -30,7 +30,7 @@ function SignupScreen(props) {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}  >
       {/* PathImage */}
-      <View style={{ position: "absolute", top: 0, right: 0, paddingTop: Constants.statusBarHeight, }}>
+      <View style={{ position: "absolute", top: 0, right: 0 }}>
         <Image source={require("../../assets/images/path1.png")} />
       </View>
 

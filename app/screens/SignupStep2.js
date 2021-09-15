@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, Dimensions, KeyboardAvoidingView } from "react-native";
+import { View, Text, Image, Dimensions, KeyboardAvoidingView, StatusBar } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { Ionicons } from "@expo/vector-icons";
 import Constants from "expo-constants";
@@ -58,19 +58,16 @@ function SignupStep2(props) {
             showIndicator(false);
             return true;
         }
-        if (!tempfeilds[1].value.includes("@")) {
+
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(tempfeilds[1].value)) {
             setShowEmailWarning(true);
-            showIndicator(false);
-            return true;
-        }
-        if (tempfeilds[1].value.includes("@")) {
-            setShowEmailWarning(false);
             showIndicator(false);
             return true;
         }
 
         try {
             // API integration will come here
+            props.navigation.navigate('WelcomeScreen');
         } catch (error) {
             alert("Login Error");
         }
@@ -79,72 +76,76 @@ function SignupStep2(props) {
     };
 
     return (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}  >
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{ flex: 1 }}
+        >
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: Colors.white }}  >
 
-            <LoadingModal show={indicator} />
+                <LoadingModal show={indicator} />
 
-            {/* PathImage */}
-            <View style={{ position: "absolute", top: 0, right: 0, paddingTop: Constants.statusBarHeight, }}>
-                <Image source={require("../../assets/images/path1.png")} />
-            </View>
+                <StatusBar backgroundColor={Colors.white} barStyle="light-content" />
 
-            {/* BackIcon */}
-            <View style={{ alignSelf: "flex-start", position: "absolute", top: RFPercentage(10), left: RFPercentage(4), }} >
-                <Ionicons
-                    name="arrow-back"
-                    size={40}
-                    color={Colors.black}
-                    style={{
-                        fontSize: RFPercentage(3),
-                        fontWeight: "bold",
-                    }}
-                    onPress={() => props.navigation.navigate("TypeCode")}
-                />
-            </View>
-
-            <View style={{ width: "85%", position: "absolute", top: height / 3.2 }} >
-                {/* Heading */}
-                <View style={{ alignSelf: "flex-start", }}>
-                    <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}>Welcome to </Text>
-                    <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}> RetailSpot! </Text>
+                {/* PathImage */}
+                <View style={{ position: "absolute", top: 0, right: 0 }}>
+                    <Image source={require("../../assets/images/path1.png")} />
                 </View>
 
-                {/* InputFields */}
-                {inputField.map((item, i) => (
-                    <View key={i} style={{ marginTop: RFPercentage(2) }} >
-                        <Text style={{ fontSize: RFPercentage(2.5), bottom: RFPercentage(0.5) }}>{item.title}</Text>
-                        <InputField
-                            placeholder={item.placeholder}
-                            secure={item.secure}
-                            keyboardType={item.type}
-                            backgroundColor={Colors.inputFieldBackgroundColor}
-                            borderColor={showEmailWarning && item.redBorder ? "red" : Colors.inputFieldBorder}
-                            borderRadius={RFPercentage(1)}
-                            // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
-                            onTouchEnd={() => console.log("here1")}
-                            handleFeild={(text) => handleChange(text, i)}
-                            value={item.value}
-                            width={"100%"}
-                        />
-                        {showEmailWarning ? <Text style={{ color: 'red' }}>{item.warning}</Text> : null}
+                {/* BackIcon */}
+                <View style={{ alignSelf: "flex-start", position: "absolute", top: RFPercentage(7), left: RFPercentage(4), }} >
+                    <Ionicons
+                        name="arrow-back"
+                        size={40}
+                        color={Colors.black}
+                        style={{
+                            fontSize: RFPercentage(3),
+                            fontWeight: "bold",
+                        }}
+                        onPress={() => props.navigation.navigate("TypeCode")}
+                    />
+                </View>
+
+                <View style={{ width: "85%", marginTop: RFPercentage(22) }} >
+                    {/* Heading */}
+                    <View style={{ alignSelf: "flex-start", }}>
+                        <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}>Welcome to </Text>
+                        <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(5) }}>RetailSpot! </Text>
                     </View>
-                ))}
-            </View>
+                    {/* InputFields */}
+                    {inputField.map((item, i) => (
+                        <View key={i} style={{ marginTop: RFPercentage(i === 0 ? 5 : 2) }} >
+                            <Text style={{ fontSize: RFPercentage(2.5), bottom: RFPercentage(0.5) }}>{item.title}</Text>
+                            <InputField
+                                placeholder={item.placeholder}
+                                secure={item.secure}
+                                keyboardType={item.type}
+                                backgroundColor={Colors.inputFieldBackgroundColor}
+                                borderColor={showEmailWarning && item.redBorder ? "red" : Colors.inputFieldBorder}
+                                borderRadius={RFPercentage(1)}
+                                onTouchEnd={() => console.log("here1")}
+                                handleFeild={(text) => handleChange(text, i)}
+                                value={item.value}
+                                width={"100%"}
+                            />
+                            {showEmailWarning ? <Text style={{ color: 'red' }}>{item.warning}</Text> : null}
+                        </View>
+                    ))}
 
-            {/* Joinnow button */}
-            <View style={{ width: "100%", alignItems: "center", position: 'absolute', bottom: RFPercentage(4) }}>
-                <MyAppButton
-                    title="JOIN NOW"
-                    padding={RFPercentage(3)}
-                    bold={false}
-                    onPress={() => handleLogin()}
-                    backgroundColor={Colors.primary}
-                    color={Colors.white}
-                    width={"98%"}
-                />
+                    {/* Joinnow button */}
+                    <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(4) }}>
+                        <MyAppButton
+                            title="JOIN NOW"
+                            padding={RFPercentage(3)}
+                            bold={false}
+                            onPress={() => handleLogin()}
+                            backgroundColor={Colors.primary}
+                            color={Colors.white}
+                            width={"98%"}
+                        />
+                    </View>
+                </View>
             </View>
-
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 

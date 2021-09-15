@@ -27,7 +27,7 @@ function InputField({
   const [eyeIcon, setEyeIcon] = useState(false);
 
   return (
-    <View style={{ alignItems: "center", justifyContent: "center", flexDirection: "row", backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: borderWidth, width: width, height: RFPercentage(6.8), borderRadius: borderRadius, marginVertical: RFPercentage(0.7), }} >
+    <View style={{ alignItems: "center", justifyContent: "center", flexDirection: "row", backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: borderWidth, width: width, height: RFPercentage(6.5), borderRadius: borderRadius, marginVertical: RFPercentage(0.7), }} >
       <TextInput
         placeholder={placeholder}
         onChangeText={(text) => handleFeild(text)}
