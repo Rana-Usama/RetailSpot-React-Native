@@ -35,6 +35,7 @@ function InputField({
 
   return (
     <View style={{ alignItems: "center", justifyContent: "center", flexDirection: "row", backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: borderWidth, width: width, height: height, borderRadius: borderRadius, marginVertical: RFPercentage(0.7), }} >
+
       <TextInput
         placeholder={placeholder}
         placeholderTextColor={placeholderColor}

@@ -10,7 +10,8 @@ import { Philosopher_700Bold, useFonts } from "@expo-google-fonts/philosopher";
 import { Montserrat_200ExtraLight, Montserrat_500Medium, Montserrat_700Bold, Montserrat_600SemiBold } from "@expo-google-fonts/montserrat"
 import { Quicksand_500Medium, Quicksand_400Regular, Quicksand_700Bold } from "@expo-google-fonts/quicksand"
 
-//components
+//screens
+import SplashScreen from "./app/screens/SplashScreen";
 import LoginScreen from "./app/screens/LoginScreen";
 import SignupScreen from "./app/screens/SignupScreen";
 import Colors from "./app/config/Colors";
@@ -48,7 +49,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
+
       <Stack.Navigator headerMode="none" initialRouteName="NotificationScreen">
+
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         <Stack.Screen name="MyBookings" component={MyBookings} />
