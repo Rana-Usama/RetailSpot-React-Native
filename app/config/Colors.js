@@ -9,5 +9,15 @@ export default {
   black: "black",
   lightOrange: "#FFA40B",
   lightBlack: "#080808",
-  codeInputFields: '#E6E9F1'
+  codeInputFields: '#E6E9F1',
+  lightGrey: '#82867D',
+  background: '#F7F7F7',
+  lightestGrey: '#82867D',
+  lightestOrange: '#F69033',
+  circle: "#C4C4C4",
+  palceholderColor: '#82867D',
+  lightBlue: '#C0FAEB',
+  editIcon: "#C4C4C4",
+  iconOrange: '#F2994A',
+  yellow: '#F2C94C'
 };
