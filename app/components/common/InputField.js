@@ -3,6 +3,7 @@ import { View, TextInput, TouchableOpacity } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 
 
@@ -24,6 +25,7 @@ function InputField({
   textCenter = "left",
   fontSize = RFPercentage(2.5),
   editIcon = false,
+  dropdownIcon = false,
   width,
   value,
   height = RFPercentage(6.8),
@@ -68,6 +70,17 @@ function InputField({
             style={{ right: RFPercentage(1) }}
             size={RFPercentage(1.5)}
             name="edit"
+          />
+        </TouchableOpacity>
+      ) : null}
+
+      {dropdownIcon ? (
+        <TouchableOpacity style={{ position: "absolute", right: RFPercentage(2) }}>
+          <Ionicons
+            color={Colors.circle}
+            style={{ right: RFPercentage(1) }}
+            size={RFPercentage(4)}
+            name="caret-down"
           />
         </TouchableOpacity>
       ) : null}

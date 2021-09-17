@@ -13,24 +13,61 @@ import MiniCardWithoutPic from './../components/common/MiniCardWithoutPic';
 import BottomTab from '../components/common/BottomTab';
 
 function MyBookings(props) {
+
+    const data = [
+        {
+            firstTitle: 'X Large Shelf',
+            secondTitle: 'Heldo Foods',
+            thirdTitle: 'One Month',
+            boxTitle: 'Awaiting Supply'
+        },
+        {
+            firstTitle: 'X Large Shelf',
+            secondTitle: 'Heldo Foods',
+            thirdTitle: 'One Month',
+            boxTitle: 'Awaiting Supply'
+
+        },
+        {
+            firstTitle: 'X Large Shelf',
+            secondTitle: 'Heldo Foods',
+            thirdTitle: 'One Month',
+            boxTitle: 'Awaiting Supply'
+
+        },
+        {
+            firstTitle: 'X Large Shelf',
+            secondTitle: 'Heldo Foods',
+            thirdTitle: 'One Month',
+            boxTitle: 'Awaiting Supply'
+
+        },
+        {
+            firstTitle: 'X Large Shelf',
+            secondTitle: 'Heldo Foods',
+            thirdTitle: 'One Month',
+            boxTitle: 'Awaiting Supply'
+
+        },
+    ]
+
+
     return (
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: Colors.background }}>
             <ScrollView style={{ backgroundColor: Colors.backgroundColor, flex: 1, width: '100%' }} >
+                {/* Nav Icon and titles */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    {/* Nav Icon and titles */}
                     <NavTitlesAndIcon mainTitle="My Bookings" sideTitle="Book" />
                 </View>
+                {/* Top Buttons */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    {/* Top Buttons */}
                     <TwoButtonsContainer buttonTitle1="On-going" buttonTitle2="All" />
                 </View>
+                {/* Notifications Listings */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', top: RFPercentage(3), marginBottom: RFPercentage(28) }}>
-                    {/* Notifications Listings */}
-                    <MiniCardWithoutPic />
-                    <MiniCardWithoutPic />
-                    <MiniCardWithoutPic />
-                    <MiniCardWithoutPic />
-                    <MiniCardWithoutPic />
+                    {data.map((item, i) => (
+                        <MiniCardWithoutPic key={i} title1={item.firstTitle} title2={item.secondTitle} title3={item.thirdTitle} boxTitle={item.boxTitle} />
+                    ))}
                 </View>
                 {/* Bottom tab */}
             </ScrollView>

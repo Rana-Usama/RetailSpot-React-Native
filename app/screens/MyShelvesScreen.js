@@ -14,6 +14,25 @@ import Colors from '../config/Colors';
 
 
 function MyShelvesScreen(props) {
+
+    const data = [
+        {
+            mainTitle: 'Prime shelf',
+            subTitle: 'Prime spot for your products'
+        },
+        {
+            mainTitle: 'Prime shelf',
+            subTitle: 'Prime spot for your products'
+        },
+        {
+            mainTitle: 'Prime shelf',
+            subTitle: 'Prime spot for your products'
+        },
+        {
+            mainTitle: 'Prime shelf',
+            subTitle: 'Prime spot for your products'
+        },
+    ]
     return (
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: Colors.background }}>
             <ScrollView style={{ backgroundColor: Colors.backgroundColor, flex: 1, width: '100%' }} >
@@ -28,10 +47,10 @@ function MyShelvesScreen(props) {
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     {/* Listings */}
                     <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', top: RFPercentage(1), marginBottom: RFPercentage(35) }}>
-                        <MiniCard />
-                        <MiniCard />
-                        <MiniCard />
-                        <MiniCard />
+                        {data.map((item, i) => (
+                            <MiniCard key={i} title1={item.mainTitle} title2={item.subTitle} />
+                        ))}
+
                     </View>
                 </View>
             </ScrollView>

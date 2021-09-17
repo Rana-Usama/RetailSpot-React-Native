@@ -9,7 +9,7 @@ import Colors from '../../config/Colors';
 
 function BottomTab(props) {
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center', position: 'absolute', justifyContent: 'center', bottom: 0, width: "98%", height: RFPercentage(12), backgroundColor: Colors.white }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', position: 'absolute', justifyContent: 'center', bottom: 0, width: "98%", height: RFPercentage(11), backgroundColor: Colors.white }}>
             <TouchableOpacity style={{ position: 'absolute', left: RFPercentage(4) }}>
                 <MaterialIcons name="all-inbox" size={RFPercentage(4)} color={Colors.circle} />
             </TouchableOpacity>

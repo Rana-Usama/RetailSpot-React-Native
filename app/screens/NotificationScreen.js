@@ -64,7 +64,6 @@ function NotificationScreen(props) {
                     <View style={{ marginBottom: RFPercentage(15) }}></View>
                 </ScrollView>
             </View>
-
             {/* Bottom tab */}
             <BottomTab />
 

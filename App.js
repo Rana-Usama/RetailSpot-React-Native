@@ -25,6 +25,8 @@ import MyShelvesBookedScreen from './app/screens/MyShelvesBookedScreen';
 import ViewShelfEditScreen from './app/screens/ViewShelfEditScreen';
 import MyBookings from './app/screens/MyBookings';
 import NotificationScreen from './app/screens/NotificationScreen';
+import DashboardScreen from './app/screens/DashboardScreen';
+import BuyerProfileScreen from './app/screens/BuyerProfileScreen';
 
 const Stack = createStackNavigator();
 
@@ -50,9 +52,11 @@ export default function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator headerMode="none" initialRouteName="NotificationScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="BuyerProfileScreen">
 
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
+        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
         <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         <Stack.Screen name="MyBookings" component={MyBookings} />
         <Stack.Screen name="ViewShelfEditScreen" component={ViewShelfEditScreen} />

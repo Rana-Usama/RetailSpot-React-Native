@@ -13,20 +13,30 @@ import BottomTab from './../components/common/BottomTab';
 import NotificationsCard from '../components/common/NotificationsCard';
 
 function MyShelvesBookedScreen(props) {
+
+    const data = [
+        {
+            mainTitle: 'Prime shelf',
+            subTitle: 'Prime spot for your products'
+        }
+
+    ]
     return (
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: Colors.background }}>
             <ScrollView style={{ backgroundColor: Colors.backgroundColor, flex: 1, width: '100%' }} >
+                {/* Nav Icon and titles */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    {/* Nav Icon and titles */}
                     <NavTitlesAndIcon mainTitle="My Spots" sideTitle="BOOK" />
                 </View>
+                {/*Top Buttons */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    {/*Top Buttons */}
                     <TwoButtonsContainer buttonTitle1="Ongoing" buttonTitle2="Booking History" />
                 </View>
+                {/* Listings */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    {/* Listings */}
-                    <MiniCard number={false} />
+                    {data.map((item, i) => (
+                        <MiniCard key={i} title1={item.mainTitle} title2={item.subTitle} />
+                    ))}
                 </View>
             </ScrollView>
             {/* Bottom tab */}
