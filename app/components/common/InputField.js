@@ -28,7 +28,7 @@ function InputField({
   dropdownIcon = false,
   width,
   value,
-  height = RFPercentage(6.8),
+  height = RFPercentage(6.5),
   secure = false,
   handleClear = false,
   leftIconName = '',

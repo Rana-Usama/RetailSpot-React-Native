@@ -32,7 +32,6 @@ import HomeScreen from './app/screens/HomeScreen';
 const Stack = createStackNavigator();
 
 export default function App() {
-
   const [fontsLoaded] = useFonts({
     Philosopher_700Bold,
     LibreBaskerville_400Regular,
@@ -51,7 +50,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="HomeScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="ViewShelfEditScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />

@@ -92,7 +92,7 @@ function BuyerProfileScreen(props) {
                                 placeholder={item.placeholder}
                                 backgroundColor={Colors.background}
                                 borderColor={Colors.background}
-                                height={RFPercentage(9)}
+                                height={RFPercentage(7.3)}
                                 fontSize={RFPercentage(2)}
                                 placeholderColor={'#82867D'}
                                 fontFamily={'Quicksand_400Regular'}
@@ -109,10 +109,9 @@ function BuyerProfileScreen(props) {
                 <ImageAddingComponent title1="Store Main Photo" title2="Upload the main photo of your store" />
                 <ImageAddingComponent title1="Photo Gallery (Optional)" title2="Upload other photos for this listing" threeBoxes={true} marginTop={RFPercentage(3.8)} />
                 {/* Create profile button */}
-                <View style={{ width: "100%", alignItems: "center", top: RFPercentage(5), marginBottom: RFPercentage(25) }}>
+                <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(5), marginBottom: RFPercentage(25) }}>
                     <MyAppButton
                         title="Create Profile"
-                        padding={RFPercentage(2.7)}
                         bold={false}
                         onPress={() => handleLogin()}
                         backgroundColor={"#FD6721"}

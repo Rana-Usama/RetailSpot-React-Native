@@ -8,17 +8,17 @@ import Colors from '../config/Colors';
 import menue from "../../assets/images/Title.png"
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import InputField from '../components/common/InputField';
+import Screen from './../components/Screen';
 
 function HomeScreen(props) {
     return (
-        <View style={styles.container}>
-            <StatusBar backgroundColor={Colors.white} />
+        <Screen style={styles.container}>
+            <StatusBar backgroundColor={Colors.iconOrange} barStyle="dark-content" />
             <View style={{ marginTop: RFPercentage(1.7), width: "95%", justifyContent: "flex-start", alignItems: "center", flex: 1 }} >
                 <View style={{ width: "100%", justifyContent: "flex-start", alignItems: "flex-start" }} >
                     <TouchableOpacity activeOpacity={0.5} >
                         <Image source={menue} style={{ width: RFPercentage(4), height: RFPercentage(4), marginLeft: RFPercentage(1.6) }} />
                     </TouchableOpacity>
-
                 </View>
 
                 <View style={{ marginTop: RFPercentage(1) }} >
@@ -36,7 +36,7 @@ function HomeScreen(props) {
                 </View>
 
             </View>
-        </View>
+        </Screen>
     );
 }
 
