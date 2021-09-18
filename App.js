@@ -27,6 +27,7 @@ import MyBookings from './app/screens/MyBookings';
 import NotificationScreen from './app/screens/NotificationScreen';
 import DashboardScreen from './app/screens/DashboardScreen';
 import BuyerProfileScreen from './app/screens/BuyerProfileScreen';
+import HomeScreen from './app/screens/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -50,9 +51,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-
-      <Stack.Navigator headerMode="none" initialRouteName="ViewShelfEditScreen">
-
+      <Stack.Navigator headerMode="none" initialRouteName="HomeScreen">
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
         <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
@@ -67,6 +67,7 @@ export default function App() {
         <Stack.Screen name="TypeCode" component={TypeCode} />
         <Stack.Screen name="SignupStep2" component={SignupStep2} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
