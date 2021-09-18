@@ -70,11 +70,10 @@ function LoginScreen(props) {
             textCenter={"center"}
             secure={item.secure}
             placeholder={item.placeholder}
-            // onTouchStart={() => setFeildMarginBottom(-RFPercentage(30))}
-            // onTouchEnd={() => setFeildMarginBottom(0)}
             handleFeild={(text) => handleChange(text, i)}
             value={item.value}
             width={"85%"}
+            borderRadius={RFPercentage(10)}
           />
         ))}
       </View>
