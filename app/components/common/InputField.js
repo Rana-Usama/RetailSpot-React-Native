@@ -3,7 +3,7 @@ import { View, TextInput, TouchableOpacity } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Feather } from '@expo/vector-icons';
 
 
 
@@ -18,8 +18,8 @@ function InputField({
   borderColor = Colors.inputFieldBorder,
   borderWidth = 1,
   fontFamily = null,
-  placeholderColor = null,
-  borderRadius = RFPercentage(10),
+  placeholderColor = Colors.inputFieldBorder,
+  borderRadius = RFPercentage(1),
   backgroundColor = Colors.white,
   keyboardType = "default",
   textCenter = "left",
@@ -31,6 +31,7 @@ function InputField({
   height = RFPercentage(6.8),
   secure = false,
   handleClear = false,
+  leftIconName = '',
   ...otherProps
 }) {
   const [eyeIcon, setEyeIcon] = useState(false);
@@ -38,17 +39,29 @@ function InputField({
   return (
     <View style={{ alignItems: "center", justifyContent: "center", flexDirection: "row", backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: borderWidth, width: width, height: height, borderRadius: borderRadius, marginVertical: RFPercentage(0.7), }} >
 
+
+      {leftIconName ? (
+        <TouchableOpacity onPress={() => handleFeild('')} style={{ marginRight: RFPercentage(1) }} >
+          <Feather
+            color="#2C3849"
+            style={{ transform: [{ scaleX: -1 }] }}
+            size={RFPercentage(3.4)}
+            name={leftIconName}
+          />
+        </TouchableOpacity>
+      ) : null}
+
       <TextInput
         placeholder={placeholder}
         placeholderTextColor={placeholderColor}
         onChangeText={(text) => handleFeild(text)}
-        // onResponderStart={onTouchStart}
-        // onEndEditing={onTouchEnd}
+        onResponderStart={onTouchStart}
+        onEndEditing={onTouchEnd}
         value={value}
         keyboardType={keyboardType}
         secureTextEntry={secure && !eyeIcon}
         textAlign={textCenter}
-        style={{ color: "black", alignSelf: "center", fontFamily: fontFamily, fontSize: fontSize, width: "90%" }}
+        style={{ color: "black", alignSelf: "center", fontFamily: fontFamily, fontSize: fontSize, width: leftIconName ? "85%" : "90%" }}
         {...otherProps}
       ></TextInput>
 
