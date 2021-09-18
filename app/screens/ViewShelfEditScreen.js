@@ -14,6 +14,9 @@ import LoadingModal from './../components/common/LoadingModel';
 //config
 import Colors from '../config/Colors';
 import { Dimensions } from 'react-native';
+import { Quicksand_400Regular } from '@expo-google-fonts/quicksand';
+import { TextInput } from 'react-native-gesture-handler';
+import SmallInputField from '../components/common/SmallInputField';
 
 const { width } = Dimensions.get('window')
 
@@ -134,10 +137,29 @@ function ViewShelfEditScreen(props) {
                     {/* input fields */}
                     <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                         <View style={{ width: '100%', alignItems: "center", marginTop: RFPercentage(4) }}>
+
+
+
                             {inputField.map((item, i) => (
+
                                 <View key={i} style={{ marginTop: RFPercentage(2) }} >
                                     <Text style={{ fontFamily: 'Quicksand_500Medium', color: "#82867D", fontWeight: 'bold', fontSize: RFPercentage(2.5), bottom: RFPercentage(0.5) }}>{item.title}</Text>
-                                    <InputField
+                                    {i === 1 ? <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: "row", width: "86%", height: RFPercentage(6.8), backgroundColor: Colors.white, borderRadius: RFPercentage(1) }}>
+                                        <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center', flexDirection: "row" }}>
+                                            <Text style={{ color: Colors.circle, fontSize: RFPercentage(2), fontFamily: 'Quicksand_400Regular' }}>
+                                                Width
+                                            </Text>
+                                            <SmallInputField />
+                                            <Text style={{ color: Colors.circle, fontSize: RFPercentage(2), fontFamily: 'Quicksand_400Regular', marginLeft: RFPercentage(2) }}>
+                                                Length
+                                            </Text>
+                                            <SmallInputField />
+                                            <Text style={{ color: Colors.circle, fontSize: RFPercentage(2), fontFamily: 'Quicksand_400Regular', marginLeft: RFPercentage(2) }}>
+                                                Height
+                                            </Text>
+                                            <SmallInputField />
+                                        </View>
+                                    </View> : <InputField
                                         placeholder={item.placeholder}
                                         secure={item.secure}
                                         keyboardType={item.type}
@@ -145,7 +167,6 @@ function ViewShelfEditScreen(props) {
                                         placeholderColor={Colors.palceholderColor}
                                         borderColor={Colors.white}
                                         borderRadius={RFPercentage(1)}
-                                        // height={RFPercentage(9)}
                                         fontFamily={"Quicksand_400Regular"}
                                         fontSize={RFPercentage(2)}
                                         editIcon={item.editIcon}
@@ -153,10 +174,14 @@ function ViewShelfEditScreen(props) {
                                         value={item.value}
                                         width={"90%"}
                                     />
+                                    }
+
                                 </View>
                             ))}
                         </View>
+
                     </View>
+
 
                     {/* Setup Spot Button */}
                     <View style={{ width: "100%", alignItems: "center", top: RFPercentage(3), marginBottom: RFPercentage(20) }}>
