@@ -9,12 +9,15 @@ import InputField from '../components/common/InputField';
 import BottomTab from '../components/common/BottomTab';
 import MyAppButton from '../components/common/MyAppButton';
 import ImageAddingComponent from '../components/common/ImageAddingComponent';
+import LoadingModal from './../components/common/LoadingModel';
+
 
 //config
 import Colors from '../config/Colors';
 
 function BuyerProfileScreen(props) {
 
+    const [indicator, showIndicator] = useState(false);
     const [inputField, SetInputField] = useState([
         {
             placeholder: "Enter your business name",
@@ -36,8 +39,31 @@ function BuyerProfileScreen(props) {
         tempfeilds[i].value = text;
         SetInputField(tempfeilds);
     };
+
+    const handleLogin = () => {
+        showIndicator(true);
+        let tempfeilds = [...inputField];
+
+        if (tempfeilds[0].value === "" || tempfeilds[1].value === "" || tempfeilds[2].value === "") {
+            alert("Please fill all the feilds !");
+            showIndicator(false);
+            return true;
+        }
+
+        try {
+            // API integration will come here
+
+        } catch (error) {
+            alert("Login Error");
+        }
+
+        showIndicator(false);
+    };
+
+
     return (
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: Colors.white }}>
+            <LoadingModal show={indicator} />
             {/* Top Image */}
             <ImageBackground style={{ justifyContent: 'center', alignItems: 'center', width: '100%', height: RFPercentage(25) }} source={require('../../assets/images/buyer.png')}>
                 <View style={{ backgroundColor: Colors.white, position: 'absolute', bottom: 0, width: '100%', height: RFPercentage(4), borderTopLeftRadius: RFPercentage(5), borderTopRightRadius: RFPercentage(5) }}>
@@ -88,7 +114,7 @@ function BuyerProfileScreen(props) {
                         title="Create Profile"
                         padding={RFPercentage(2.7)}
                         bold={false}
-                        // onPress={() => handleLogin()}
+                        onPress={() => handleLogin()}
                         backgroundColor={"#FD6721"}
                         color={Colors.white}
                         width={"90%"}
