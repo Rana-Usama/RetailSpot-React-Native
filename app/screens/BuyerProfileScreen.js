@@ -11,7 +11,6 @@ import MyAppButton from '../components/common/MyAppButton';
 import ImageAddingComponent from '../components/common/ImageAddingComponent';
 import LoadingModal from './../components/common/LoadingModel';
 
-
 //config
 import Colors from '../config/Colors';
 
@@ -77,13 +76,14 @@ function BuyerProfileScreen(props) {
                     Create Profile
                 </Text>
             </ImageBackground>
+
             {/* Central heading */}
             <Text style={{ color: '#313942', fontSize: RFPercentage(2.3), marginTop: RFPercentage(1.5), fontFamily: 'Montserrat_500Medium' }}>
                 BUSINESS INFORMATION
             </Text>
+
             {/* ScrollView */}
             <ScrollView style={{ backgroundColor: Colors.white, flex: 1, width: '100%' }} >
-
                 {/* Input Fields */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', marginTop: RFPercentage(4) }}>
                     {inputField.map((item, i) => (
@@ -121,6 +121,7 @@ function BuyerProfileScreen(props) {
                     />
                 </View>
             </ScrollView>
+
             <View style={{ position: 'absolute', width: '100%', bottom: 0 }}>
                 {/* Bottom Tab */}
                 <BottomTab />

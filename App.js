@@ -42,7 +42,6 @@ export default function App() {
     Quicksand_700Bold,
     Montserrat_600SemiBold,
     Montserrat_700Bold,
-
   })
 
   if (!fontsLoaded) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >

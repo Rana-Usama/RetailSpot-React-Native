@@ -6,11 +6,10 @@ import Screen from './../components/Screen';
 import MiniCard from './../components/common/MiniCard';
 import TwoButtonsContainer from '../components/common/TwoButtonsContainer';
 import NavTitlesAndIcon from './../components/common/NavTitlesAndIcon';
+import BottomTab from './../components/common/BottomTab';
 
 //config
 import Colors from '../config/Colors';
-import BottomTab from './../components/common/BottomTab';
-import NotificationsCard from '../components/common/NotificationsCard';
 
 function MyShelvesBookedScreen(props) {
 
@@ -41,7 +40,6 @@ function MyShelvesBookedScreen(props) {
             </ScrollView>
             {/* Bottom tab */}
             <BottomTab />
-
         </Screen>
     );
 }

@@ -5,11 +5,11 @@ import { RFPercentage } from 'react-native-responsive-fontsize';
 
 //components
 import Screen from './../components/Screen';
+import BottomTab from '../components/common/BottomTab';
+import MiniCardWithoutPic from '../components/common/MiniCardWithoutPic';
 
 //config
 import Colors from '../config/Colors';
-import MiniCardWithoutPic from '../components/common/MiniCardWithoutPic';
-import BottomTab from '../components/common/BottomTab';
 
 function DashboardScreen(props) {
 
@@ -108,6 +108,7 @@ function DashboardScreen(props) {
                     </Text>
                 </TouchableOpacity>
             </View>
+
             {/* Listings */}
             <ScrollView style={{ marginTop: RFPercentage(3), flex: 1, width: '100%' }} >
                 <View style={{ width: '100%', alignItems: 'center', justifyContent: 'center', marginTop: RFPercentage(2.4), marginBottom: RFPercentage(20) }}>

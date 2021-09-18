@@ -54,6 +54,7 @@ function MyShelvesScreen(props) {
                     </View>
                 </View>
             </ScrollView>
+
             {/* Bottom tab */}
             <BottomTab />
         </Screen>

@@ -3,10 +3,6 @@ import { View, Text, ImageBackground, ScrollView, Image, TouchableOpacity } from
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { MaterialIcons } from '@expo/vector-icons';
 
-
-//config
-import Colors from '../config/Colors';
-
 //components
 import Screen from './../components/Screen';
 import InputField from '../components/common/InputField';
@@ -15,6 +11,8 @@ import NavTitlesAndIcon from './../components/common/NavTitlesAndIcon';
 import BottomTab from '../components/common/BottomTab';
 import LoadingModal from './../components/common/LoadingModel';
 
+//config
+import Colors from '../config/Colors';
 
 function ViewShelfEditScreen(props) {
 
@@ -97,21 +95,18 @@ function ViewShelfEditScreen(props) {
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: Colors.background }}>
             <ScrollView style={{ backgroundColor: Colors.backgroundColor, flex: 1, width: '100%' }} >
                 <LoadingModal show={indicator} />
+                {/* Nav Icon and titles */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-
-                    {/* Nav Icon and titles */}
                     <NavTitlesAndIcon mainTitle="View Shelf" sideTitle="ADD" icon={true} />
                 </View>
+                {/* Image Title */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-
-                    {/* Image Title */}
                     <Text style={{ fontFamily: 'Quicksand_400Regular', marginTop: RFPercentage(7), color: "#313942", fontSize: RFPercentage(2.3) }}>
                         Prime Shelf
                     </Text>
                 </View>
+                {/* Main Image */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-
-                    {/* Main Image */}
                     <ImageBackground style={{ marginTop: RFPercentage(4), width: RFPercentage(50), height: RFPercentage(40) }} source={require('../../assets/images/completeBuilding.png')}>
                         {/* Edit Icon */}
                         <TouchableOpacity style={{ position: 'absolute', right: RFPercentage(2), top: RFPercentage(2) }}>
@@ -120,8 +115,8 @@ function ViewShelfEditScreen(props) {
                     </ImageBackground>
                 </View>
 
+                {/* white container images */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    {/* white container images */}
                     <View style={{ flexDirection: 'row', width: '90%', backgroundColor: Colors.white, alignItems: 'center', justifyContent: 'space-evenly', height: RFPercentage(16), marginTop: RFPercentage(2.4), borderRadius: RFPercentage(2) }}>
                         <TouchableOpacity style={{ position: 'absolute', right: RFPercentage(1.6), top: RFPercentage(0.4) }}>
                             <MaterialIcons name="edit" size={RFPercentage(1.8)} color={Colors.editIcon} />
@@ -174,6 +169,7 @@ function ViewShelfEditScreen(props) {
                     />
                 </View>
             </ScrollView>
+
             {/* Bottom tab */}
             <BottomTab />
         </Screen>

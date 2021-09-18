@@ -3,13 +3,14 @@ import { Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { AntDesign } from '@expo/vector-icons';
 
-//config
-import Colors from '../config/Colors';
-
 //components
 import Screen from '../components/Screen';
 import NotificationsCard from './../components/common/NotificationsCard';
 import BottomTab from './../components/common/BottomTab';
+
+//config
+import Colors from '../config/Colors';
+
 
 function NotificationScreen(props) {
 
@@ -50,10 +51,12 @@ function NotificationScreen(props) {
             <Text style={{ fontSize: RFPercentage(2.3), marginTop: RFPercentage(9), color: '#82867D', fontFamily: 'Montserrat_500Medium' }}>
                 Notifications
             </Text>
+
             {/* Icon */}
             <TouchableOpacity style={{ position: 'absolute', top: RFPercentage(10.2), left: RFPercentage(4) }}>
                 <AntDesign name="bars" size={RFPercentage(4)} color={Colors.iconOrange} />
             </TouchableOpacity>
+
             {/* Listings */}
             <View style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: Colors.white, width: '100%', height: RFPercentage(65), marginTop: RFPercentage(5), borderTopLeftRadius: RFPercentage(8), borderTopRightRadius: RFPercentage(8) }}>
                 <ScrollView style={{ backgroundColor: Colors.backgroundColor, flex: 1, width: '100%', borderTopLeftRadius: RFPercentage(8), borderTopRightRadius: RFPercentage(8) }} >
@@ -64,9 +67,9 @@ function NotificationScreen(props) {
                     <View style={{ marginBottom: RFPercentage(15) }}></View>
                 </ScrollView>
             </View>
+
             {/* Bottom tab */}
             <BottomTab />
-
         </Screen>
     );
 }
