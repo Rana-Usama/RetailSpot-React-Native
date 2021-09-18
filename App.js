@@ -28,6 +28,7 @@ import NotificationScreen from './app/screens/NotificationScreen';
 import DashboardScreen from './app/screens/DashboardScreen';
 import BuyerProfileScreen from './app/screens/BuyerProfileScreen';
 import HomeScreen from './app/screens/HomeScreen';
+import ProfileScreen from './app/screens/ProfileScreen';
 
 const Stack = createStackNavigator();
 
@@ -50,8 +51,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="ViewShelfEditScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="ProfileScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
         <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
