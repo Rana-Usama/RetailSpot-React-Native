@@ -67,7 +67,9 @@ function DashboardScreen(props) {
     return (
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: "#F3F6F9" }}>
             {/* Image background */}
-            <ImageBackground style={{ width: '100%', height: RFPercentage(38) }} source={require('../../assets/images/dashboard.png')}>
+            <ImageBackground style={{ width: '100%', height: RFPercentage(40) }} source={require('../../assets/images/dashboard.png')}>
+                <View style={{ backgroundColor: "#F3F6F9", position: 'absolute', bottom: 0, width: '100%', height: RFPercentage(6), borderTopLeftRadius: RFPercentage(3) }}>
+                </View>
                 <TouchableOpacity style={{ marginLeft: RFPercentage(4), marginTop: RFPercentage(6) }}>
                     <AntDesign name="bars" size={RFPercentage(4)} color={Colors.white} />
 
@@ -81,7 +83,7 @@ function DashboardScreen(props) {
             </ImageBackground>
 
             {/* White Boxes */}
-            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', width: '95%', marginTop: RFPercentage(2) }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', width: '95%' }}>
                 {data.map((item, i) => (
                     <View key={i} style={{ alignItems: 'center', justifyContent: 'center', backgroundColor: Colors.white, width: RFPercentage(15), height: RFPercentage(15), borderRadius: RFPercentage(1.5) }}>
                         <Text style={{ color: '#444640', fontSize: RFPercentage(2.8), fontFamily: 'Quicksand_700Bold' }}>

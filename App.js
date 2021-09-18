@@ -52,7 +52,7 @@ export default function App() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator headerMode="none" initialRouteName="BuyerProfileScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="ViewShelfEditScreen">
 
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />

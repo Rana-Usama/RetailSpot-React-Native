@@ -13,10 +13,12 @@ import InputField from '../components/common/InputField';
 import MyAppButton from '../components/common/MyAppButton';
 import NavTitlesAndIcon from './../components/common/NavTitlesAndIcon';
 import BottomTab from '../components/common/BottomTab';
+import LoadingModal from './../components/common/LoadingModel';
+
 
 function ViewShelfEditScreen(props) {
 
-
+    const [indicator, showIndicator] = useState(false);
     const [inputField, SetInputField] = useState([
         {
             placeholder: "Prime spot for your products",
@@ -68,10 +70,33 @@ function ViewShelfEditScreen(props) {
         SetInputField(tempfeilds);
 
     };
+
+    const handleLogin = () => {
+        showIndicator(true);
+        let tempfeilds = [...inputField];
+
+        if (tempfeilds[0].value === "" || tempfeilds[1].value === "" || tempfeilds[2].value === "" || tempfeilds[3].value === "" || tempfeilds[4].value === "" || tempfeilds[5].value === "") {
+            alert("Please fill all the feilds !");
+            showIndicator(false);
+            return true;
+        }
+
+        try {
+
+            // API integration will come here
+
+        } catch (error) {
+            alert("Login Error");
+        }
+
+        showIndicator(false);
+    };
+
     return (
 
         <Screen style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center', backgroundColor: Colors.background }}>
             <ScrollView style={{ backgroundColor: Colors.backgroundColor, flex: 1, width: '100%' }} >
+                <LoadingModal show={indicator} />
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
 
                     {/* Nav Icon and titles */}
@@ -142,7 +167,7 @@ function ViewShelfEditScreen(props) {
                         title="Setup Spot"
                         padding={RFPercentage(2.7)}
                         bold={false}
-                        // onPress={() => handleLogin()}
+                        onPress={() => handleLogin()}
                         backgroundColor={Colors.primary}
                         color={Colors.white}
                         width={"90%"}
