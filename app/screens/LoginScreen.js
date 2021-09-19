@@ -40,6 +40,7 @@ function LoginScreen(props) {
 
     try {
       // API integration will come here
+      props.navigation.navigate('HomeDrawer')
     } catch (error) {
       alert("Login Error");
     }

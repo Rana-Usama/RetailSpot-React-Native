@@ -16,8 +16,8 @@ function HomeScreen(props) {
             <StatusBar backgroundColor={Colors.iconOrange} barStyle="dark-content" />
             <View style={{ marginTop: RFPercentage(1.7), width: "95%", justifyContent: "flex-start", alignItems: "center", flex: 1 }} >
                 <View style={{ width: "100%", justifyContent: "flex-start", alignItems: "flex-start" }} >
-                    <TouchableOpacity activeOpacity={0.5} >
-                        <Image source={menue} style={{ width: RFPercentage(4), height: RFPercentage(4), marginLeft: RFPercentage(1.6) }} />
+                    <TouchableOpacity onPress={() => props.navigation.openDrawer()} activeOpacity={0.5} >
+                        <Image source={menue} style={{ width: RFPercentage(3.8), height: RFPercentage(3.8), marginLeft: RFPercentage(1.6) }} />
                     </TouchableOpacity>
                 </View>
 
