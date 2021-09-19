@@ -53,6 +53,10 @@ export default function App() {
   const HomeDrawer = () => {
     return <Drawer.Navigator drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />} initialRouteName="HomeScreen" >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+      <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
+      <Stack.Screen name="MyShelvesScreen" component={MyShelvesScreen} />
+      <Stack.Screen name="MyShelvesBookedScreen" component={MyShelvesBookedScreen} />
     </Drawer.Navigator>
   }
 
@@ -62,25 +66,20 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="LoginScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="HomeDrawer">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeDrawer" component={HomeDrawer} />
-
-        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
-        <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
         <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         <Stack.Screen name="MyBookings" component={MyBookings} />
         <Stack.Screen name="ViewShelfEditScreen" component={ViewShelfEditScreen} />
-        <Stack.Screen name="MyShelvesScreen" component={MyShelvesScreen} />
-        <Stack.Screen name="MyShelvesBookedScreen" component={MyShelvesBookedScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
         <Stack.Screen name="LoginNumberScreen" component={LoginNumberScreen} />
         <Stack.Screen name="SentCodeScreen" component={SentCodeScreen} />
         <Stack.Screen name="TypeCode" component={TypeCode} />
         <Stack.Screen name="SignupStep2" component={SignupStep2} />
-        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

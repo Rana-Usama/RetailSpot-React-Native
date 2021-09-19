@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, TouchableOpacity, View, Text, KeyboardAvoidingView, ScrollView } from 'react-native'
+import { ImageBackground, Image, TouchableOpacity, View, Text, ScrollView, KeyboardAvoidingView } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -16,6 +16,7 @@ import Colors from '../config/Colors';
 
 function BuyerProfileScreen(props) {
 
+    const [bottomTab, setBottomTab] = useState(true)
     const [indicator, showIndicator] = useState(false);
     const [inputField, SetInputField] = useState([
         {
@@ -68,15 +69,14 @@ function BuyerProfileScreen(props) {
                 <View style={{ backgroundColor: Colors.white, position: 'absolute', bottom: 0, width: '100%', height: RFPercentage(4), borderTopLeftRadius: RFPercentage(5), borderTopRightRadius: RFPercentage(5) }}>
                 </View>
                 {/* Icon */}
-                <TouchableOpacity style={{ position: 'absolute', top: RFPercentage(8), left: RFPercentage(4) }}>
-                    <AntDesign name="bars" size={RFPercentage(4)} color={Colors.white} />
+                <TouchableOpacity onPress={() => props.navigation.openDrawer()} activeOpacity={0.5} style={{ position: 'absolute', top: RFPercentage(8), left: RFPercentage(4) }}>
+                    <Image source={require('../../assets/images/notiDash.png')} />
                 </TouchableOpacity>
                 {/*Image Heading */}
                 <Text style={{ fontWeight: 'bold', color: Colors.white, bottom: RFPercentage(2.3), fontSize: RFPercentage(2.7) }}>
                     Create Profile
                 </Text>
             </ImageBackground>
-
             {/* Central heading */}
             <Text style={{ color: '#313942', fontSize: RFPercentage(2.3), marginTop: RFPercentage(1.5), fontFamily: 'Montserrat_500Medium' }}>
                 BUSINESS INFORMATION
@@ -84,27 +84,35 @@ function BuyerProfileScreen(props) {
 
             {/* ScrollView */}
             <ScrollView style={{ backgroundColor: Colors.white, flex: 1, width: '100%' }} >
-                {/* Input Fields */}
-                <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', marginTop: RFPercentage(4) }}>
-                    {inputField.map((item, i) => (
-                        <View key={i} style={{ marginTop: RFPercentage(2) }} >
-                            <InputField
-                                placeholder={item.placeholder}
-                                backgroundColor={Colors.background}
-                                borderColor={Colors.background}
-                                height={RFPercentage(7.3)}
-                                fontSize={RFPercentage(2)}
-                                placeholderColor={'#82867D'}
-                                fontFamily={'Quicksand_400Regular'}
-                                dropdownIcon={item.dropdownIcon}
-                                borderRadius={RFPercentage(20)}
-                                handleFeild={(text) => handleChange(text, i)}
-                                value={item.value}
-                                width={"90%"}
-                            />
-                        </View>
-                    ))}
-                </View>
+
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === "ios" ? "padding" : "height"}
+                    style={{ flex: 1 }}
+                >
+                    {/* Input Fields */}
+                    <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', marginTop: RFPercentage(4) }}>
+                        {inputField.map((item, i) => (
+                            <View key={i} style={{ marginTop: RFPercentage(2) }} >
+                                <InputField
+                                    placeholder={item.placeholder}
+                                    backgroundColor={Colors.background}
+                                    borderColor={Colors.background}
+                                    height={RFPercentage(7.3)}
+                                    fontSize={RFPercentage(2)}
+                                    onTouchStart={() => setBottomTab(false)}
+                                    onTouchEnd={() => setBottomTab(true)}
+                                    placeholderColor={'#82867D'}
+                                    fontFamily={'Quicksand_400Regular'}
+                                    dropdownIcon={item.dropdownIcon}
+                                    borderRadius={RFPercentage(20)}
+                                    handleFeild={(text) => handleChange(text, i)}
+                                    value={item.value}
+                                    width={"90%"}
+                                />
+                            </View>
+                        ))}
+                    </View>
+                </KeyboardAvoidingView>
                 {/* Adding photos component */}
                 <ImageAddingComponent title1="Store Main Photo" title2="Upload the main photo of your store" />
                 <ImageAddingComponent title1="Photo Gallery (Optional)" title2="Upload other photos for this listing" threeBoxes={true} marginTop={RFPercentage(3.8)} />
@@ -120,11 +128,15 @@ function BuyerProfileScreen(props) {
                     />
                 </View>
             </ScrollView>
+            {bottomTab ?
+                <View style={{ position: 'absolute', width: '100%', bottom: 0 }}>
+                    {/* Bottom Tab */}
+                    <BottomTab />
+                </View> :
+                null
+            }
 
-            <View style={{ position: 'absolute', width: '100%', bottom: 0 }}>
-                {/* Bottom Tab */}
-                <BottomTab />
-            </View>
+
         </Screen>
     );
 }

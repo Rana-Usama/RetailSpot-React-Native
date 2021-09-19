@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, ImageBackground, TouchableOpacity, ScrollView, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
@@ -70,9 +70,9 @@ function DashboardScreen(props) {
             <ImageBackground style={{ width: '100%', height: RFPercentage(40) }} source={require('../../assets/images/dashboard.png')}>
                 <View style={{ backgroundColor: "#F3F6F9", position: 'absolute', bottom: 0, width: '100%', height: RFPercentage(6), borderTopLeftRadius: RFPercentage(3) }}>
                 </View>
-                <TouchableOpacity style={{ marginLeft: RFPercentage(4), marginTop: RFPercentage(6) }}>
-                    <AntDesign name="bars" size={RFPercentage(4)} color={Colors.white} />
-
+                {/* Icon */}
+                <TouchableOpacity onPress={() => props.navigation.openDrawer()} activeOpacity={0.5} style={{ marginLeft: RFPercentage(4), marginTop: RFPercentage(6) }}>
+                    <Image source={require('../../assets/images/notiDash.png')} />
                 </TouchableOpacity>
                 <Text style={{ marginLeft: RFPercentage(4), fontSize: RFPercentage(2), color: Colors.white, marginTop: RFPercentage(7) }}>
                     Hi, Ike.
@@ -101,8 +101,7 @@ function DashboardScreen(props) {
                 <Text style={{ position: 'absolute', left: 0, fontSize: RFPercentage(2.3), color: '#3A3384', fontFamily: 'Montserrat_500Medium' }}>
                     Latest Transactions
                 </Text>
-
-                <TouchableOpacity>
+                <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={{ position: 'absolute', right: 0, color: '#717171', fontFamily: 'Quicksand_400Regular', fontSize: RFPercentage(1.8) }}>
                         View All
                     </Text>
