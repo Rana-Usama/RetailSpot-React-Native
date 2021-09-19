@@ -29,6 +29,7 @@ import NotificationScreen from './app/screens/NotificationScreen';
 import DashboardScreen from './app/screens/DashboardScreen';
 import BuyerProfileScreen from './app/screens/BuyerProfileScreen';
 import HomeScreen from './app/screens/HomeScreen';
+import ProfileScreen from './app/screens/ProfileScreen';
 
 import AppDrawer from './app/components/common/AppDrawer';
 
@@ -66,6 +67,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator headerMode="none" initialRouteName="LoginScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeDrawer" component={HomeDrawer} />
 
