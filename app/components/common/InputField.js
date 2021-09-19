@@ -45,7 +45,7 @@ function InputField({
           <Feather
             color="#2C3849"
             style={{ transform: [{ scaleX: -1 }] }}
-            size={RFPercentage(3.4)}
+            size={RFPercentage(3)}
             name={leftIconName}
           />
         </TouchableOpacity>
