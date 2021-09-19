@@ -48,12 +48,9 @@ export default function App() {
     Montserrat_700Bold,
   })
 
+  // screeen which have drawer icon
   const HomeDrawer = () => {
-    return <Drawer.Navigator drawerType={"front"}
-      overlayColor="transparent"
-      edgeWidth={100}
-      drawerStyle={{ backgroundColor: Colors.white, width: "75%" }}
-      drawerContent={(props) => <AppDrawer {...props} />} initialRouteName="HomeScreen" >
+    return <Drawer.Navigator drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />} initialRouteName="HomeScreen" >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
     </Drawer.Navigator>
   }
