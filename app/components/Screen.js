@@ -1,12 +1,11 @@
 import React from "react";
-import { Platform, SafeAreaView, StyleSheet, View, StatusBar } from "react-native";
-import Constants from "expo-constants";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { Platform, SafeAreaView, StyleSheet, StatusBar } from "react-native";
+import Colors from "../config/Colors";
 
-function Screen({ children, style }) {
+function Screen({ children, style, barColor = Colors.white, barStyle = "default" }) {
   return (
     <SafeAreaView style={[styles.screen, style]}>
-      {Platform.OS === "android" ? <StatusBar backgroundColor={Colors.iconOrange} barStyle="dark-content" /> : null}
+      {Platform.OS === "android" ? <StatusBar backgroundColor={barColor} barStyle={barStyle} /> : null}
       {children}
     </SafeAreaView>
   );
@@ -14,8 +13,6 @@ function Screen({ children, style }) {
 
 const styles = StyleSheet.create({
   screen: {
-    // paddingTop: Constants.statusBarHeight,
-
     flex: 1,
   },
 });

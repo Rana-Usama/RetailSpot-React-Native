@@ -81,7 +81,6 @@ export default function App() {
         <Stack.Screen name="TypeCode" component={TypeCode} />
         <Stack.Screen name="SignupStep2" component={SignupStep2} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-        {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
