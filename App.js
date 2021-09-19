@@ -1,7 +1,8 @@
 import React from "react";
+import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { ActivityIndicator, View } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer"
 import { RFPercentage } from "react-native-responsive-fontsize";
 
 //custom fonts
@@ -29,7 +30,10 @@ import DashboardScreen from './app/screens/DashboardScreen';
 import BuyerProfileScreen from './app/screens/BuyerProfileScreen';
 import HomeScreen from './app/screens/HomeScreen';
 
+import AppDrawer from './app/components/common/AppDrawer';
+
 const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -44,17 +48,29 @@ export default function App() {
     Montserrat_700Bold,
   })
 
+  const HomeDrawer = () => {
+    return <Drawer.Navigator drawerType={"front"}
+      overlayColor="transparent"
+      edgeWidth={100}
+      drawerStyle={{ backgroundColor: Colors.white, width: "75%" }}
+      drawerContent={(props) => <AppDrawer {...props} />} initialRouteName="HomeScreen" >
+      <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+    </Drawer.Navigator>
+  }
+
   if (!fontsLoaded) return <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
     <ActivityIndicator size={RFPercentage(6)} color={Colors.primary} />
   </View>
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="ViewShelfEditScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="LoginScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
-        <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
+        <Stack.Screen name="HomeDrawer" component={HomeDrawer} />
+
         <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+        <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
         <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         <Stack.Screen name="MyBookings" component={MyBookings} />
         <Stack.Screen name="ViewShelfEditScreen" component={ViewShelfEditScreen} />
@@ -66,7 +82,7 @@ export default function App() {
         <Stack.Screen name="TypeCode" component={TypeCode} />
         <Stack.Screen name="SignupStep2" component={SignupStep2} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
