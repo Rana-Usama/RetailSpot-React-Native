@@ -13,7 +13,6 @@ import Screen from './../components/Screen';
 function HomeScreen(props) {
     return (
         <Screen style={styles.container}>
-            <StatusBar backgroundColor={Colors.iconOrange} barStyle="dark-content" />
             <View style={{ marginTop: RFPercentage(1.7), width: "95%", justifyContent: "flex-start", alignItems: "center", flex: 1 }} >
                 <View style={{ width: "100%", justifyContent: "flex-start", alignItems: "flex-start" }} >
                     <TouchableOpacity onPress={() => props.navigation.openDrawer()} activeOpacity={0.5} >
