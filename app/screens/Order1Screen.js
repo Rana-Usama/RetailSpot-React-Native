@@ -3,6 +3,7 @@ import { Text, StyleSheet, TouchableOpacity, View, ScrollView, ImageBackground, 
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
 import { RadioButton } from 'react-native-paper';
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 // components
 import Screen from '../components/Screen';
@@ -147,6 +148,33 @@ function Order1Screen(props) {
         setAddOns(temp)
     }
 
+    const handlePlantain = (index) => {
+        let temp = [...plantain];
+        temp[index].active = temp[index].active === "unchecked" ? "checked" : "unchecked";
+        setPlantain(temp)
+    }
+
+    const handleSizes = (index) => {
+        let temp = [...sizes];
+        temp[index].active = temp[index].active === "unchecked" ? "checked" : "unchecked";
+        setSizes(temp)
+    }
+
+    const handleBrandings = (index) => {
+        let temp = [...brandings];
+        temp[index].active = temp[index].active === "unchecked" ? "checked" : "unchecked";
+        setBrandings(temp)
+    }
+
+    const handleAddItem = async () => {
+        try {
+            await AsyncStorage.setItem("cart", JSON.stringify([{ data: "" }]))
+            props.navigation.navigate("Store1Screen")
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <Screen barStyle="dark-content" style={styles.container}>
             <ScrollView style={{ width: "100%" }} >
@@ -252,7 +280,7 @@ function Order1Screen(props) {
             <Modal visible={modalVisible} transparent={true}  >
                 <View style={{ backgroundColor: Colors.white, height: (height - RFPercentage(5)), marginTop: RFPercentage(12) }} >
                     <View style={{ marginTop: -RFPercentage(2), justifyContent: "space-evenly", alignItems: "center", width: "100%", height: RFPercentage(9), borderRadius: RFPercentage(2), backgroundColor: Colors.primary }} >
-                        <View style={{ backgroundColor: Colors.white, width: RFPercentage(4), height: RFPercentage(0.6), borderRadius: RFPercentage(2) }} ></View>
+                        <TouchableOpacity onPress={() => setModalVisible(false)} style={{ backgroundColor: Colors.white, width: RFPercentage(4), height: RFPercentage(0.6), borderRadius: RFPercentage(2) }} ></TouchableOpacity>
 
                         <View style={{ flexDirection: "row", width: "90%", justifyContent: 'flex-start', alignItems: "center" }} >
                             <TouchableOpacity style={{ width: "40%" }} onPress={() => setModalVisible(false)} >
@@ -279,7 +307,7 @@ function Order1Screen(props) {
                                                 label="Carto Base MAp"
                                                 status={item.active}
                                                 color={Colors.primary}
-                                                onPress={() => handleAddOns(index)}
+                                                onPress={() => handlePlantain(index)}
                                             />
                                             <Text>
                                                 {item.title}
@@ -310,7 +338,7 @@ function Order1Screen(props) {
                                                 label="Carto Base MAp"
                                                 status={item.active}
                                                 color={Colors.primary}
-                                                onPress={() => handleAddOns(index)}
+                                                onPress={() => handleSizes(index)}
                                             />
                                             <Text>
                                                 {item.title}
@@ -341,7 +369,7 @@ function Order1Screen(props) {
                                                 label="Carto Base MAp"
                                                 status={item.active}
                                                 color={Colors.primary}
-                                                onPress={() => handleAddOns(index)}
+                                                onPress={() => handleBrandings(index)}
                                             />
                                             <Text>
                                                 {item.title}
@@ -357,9 +385,10 @@ function Order1Screen(props) {
                         </View>
                     </ScrollView>
 
-                    <View style={{ justifyContent: "space-around", alignItems: "center", flexDirection: "row", position: "absolute", bottom: RFPercentage(10), right: 0, width: "50%", height: RFPercentage(12), borderTopLeftRadius: RFPercentage(2), backgroundColor: Colors.primary }} >
+                    <TouchableOpacity onPress={() => handleAddItem()} style={{ justifyContent: "space-around", alignItems: "center", flexDirection: "row", position: "absolute", bottom: RFPercentage(10), right: 0, width: "50%", height: RFPercentage(12), borderTopLeftRadius: RFPercentage(2), backgroundColor: Colors.primary }} >
                         <Text style={{ fontSize: RFPercentage(2.7), color: Colors.white }} >ADD</Text>
-                    </View>
+                    </TouchableOpacity>
+
                     <View style={{ backgroundColor: Colors.white, justifyContent: "center", alignItems: "center", flexDirection: "row", position: "absolute", bottom: RFPercentage(10), left: 0, width: "50%", height: RFPercentage(12) }} >
                         <View style={{ flexDirection: "row" }} >
                             <TouchableOpacity onPress={() => setCount(count === 0 ? 0 : count - 1)} >

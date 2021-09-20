@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Image, Text, StyleSheet, TouchableOpacity, View, ScrollView, ImageBackground, Platform, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Image, Text, StyleSheet, TouchableOpacity, View, ScrollView, ImageBackground, Platform, Dimensions, Modal } from 'react-native';
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import { MaterialCommunityIcons, Foundation, FontAwesome, Fontisto, Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, FontAwesome, Fontisto, Ionicons } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 // components
 import Screen from './../components/Screen';
@@ -15,10 +16,12 @@ import pop1 from "../../assets/images/pop1.png"
 import pop3 from "../../assets/images/pop3.png"
 import sunPer from "../../assets/images/sunPer.png"
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 function Store1Screen(props) {
 
+    const [showCartButton, setShowCartButton] = useState(false)
+    const [showCartDetails, setShowCartDetails] = useState(false)
     const [popular, setPopular] = useState([
         {
             id: 0,
@@ -72,6 +75,27 @@ function Store1Screen(props) {
             image: pop3
         },
     ])
+
+    const getCart = async () => {
+        try {
+            let res = await AsyncStorage.getItem("cart");
+            res = JSON.parse(res);
+            if (res.length > 0) {
+                setShowCartButton(true)
+            } else {
+                setShowCartButton(false)
+            }
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        getCart()
+        return () => {
+            setShowCartButton(false)
+        }
+    }, [])
 
     return (
         <Screen barStyle="dark-content" style={styles.container}>
@@ -203,6 +227,32 @@ function Store1Screen(props) {
 
                 </View>
             </ScrollView>
+
+            {
+                showCartButton ?
+                    <TouchableOpacity onPress={() => setShowCartDetails(true)} activeOpacity={1} style={{ justifyContent: "space-around", alignItems: "center", flexDirection: "row", position: "absolute", bottom: RFPercentage(2), width: "99%", height: RFPercentage(8), borderRadius: RFPercentage(10), backgroundColor: Colors.primary }} >
+                        <Text style={{ color: Colors.white, fontSize: RFPercentage(2.4) }} >1 Item</Text>
+                        <Text style={{ color: Colors.white, fontSize: RFPercentage(2.4) }} >CART</Text>
+                        <Text style={{ color: Colors.white, fontSize: RFPercentage(2.4) }} >₦ 4,500</Text>
+                    </TouchableOpacity>
+                    : null
+            }
+
+            <Modal visible={showCartDetails} transparent={true}  >
+                <View style={{ width: "100%", justifyContent: "flex-start", alignItems: "center", borderTopLeftRadius: RFPercentage(7), borderTopRightRadius: RFPercentage(7), marginTop: (height - RFPercentage(30)), backgroundColor: Colors.primary, height: RFPercentage(35) }} >
+                    <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(3) }}>
+                        <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                            <Ionicons name="basket-sharp" size={RFPercentage(3)} color={Colors.white} />
+                            <Text style={{ fontSize: RFPercentage(2.4), marginLeft: RFPercentage(1), color: Colors.white }} >Cart</Text>
+                            <Text style={{ fontSize: RFPercentage(2.4), marginLeft: RFPercentage(0.5), color: Colors.white }} >(1 item)</Text>
+                        </View>
+
+                        <TouchableOpacity onPress={() => setShowCartDetails(false)} >
+                            <MaterialCommunityIcons name="chevron-down" size={RFPercentage(3)} color={Colors.white} />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </Modal>
 
         </Screen >
     );
