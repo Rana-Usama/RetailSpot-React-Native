@@ -34,6 +34,7 @@ function InputField({
   leftIconName = '',
   autoFocus = false,
   searchMarginLeft = null,
+  color = "black",
   ...otherProps
 }) {
   const [eyeIcon, setEyeIcon] = useState(false);
@@ -64,7 +65,7 @@ function InputField({
         keyboardType={keyboardType}
         secureTextEntry={secure && !eyeIcon}
         textAlign={textCenter}
-        style={{ color: "black", alignSelf: "center", fontFamily: fontFamily, fontSize: fontSize, width: leftIconName ? "85%" : "90%" }}
+        style={{ color: color, alignSelf: "center", fontFamily: fontFamily, fontSize: fontSize, width: leftIconName ? "85%" : "90%" }}
         {...otherProps}
       ></TextInput>
 

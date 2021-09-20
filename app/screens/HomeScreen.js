@@ -96,10 +96,11 @@ function HomeScreen(props) {
                         />
                     </View>
 
+                    {/* slider */}
                     <ScrollView showsHorizontalScrollIndicator={false} style={{ maxHeight: RFPercentage(22), marginTop: RFPercentage(1.5) }} horizontal={true} >
                         {sliderData.map((item, index) => (
                             <ImageBackground key={index} borderRadius={RFPercentage(3)} style={{ margin: RFPercentage(1), justifyContent: "center", alignItems: "center", borderRadius: RFPercentage(3), width: RFPercentage(29), height: RFPercentage(18) }} source={item.image} >
-                                <View style={{ width: "100%", justifyContent: "center", alignItems: "center" }} >
+                                <TouchableOpacity activeOpacity={0.9} onPress={() => props.navigation.navigate('Store1Screen')} style={{ width: "100%", justifyContent: "center", alignItems: "center" }} >
                                     <Text style={{ marginRight: RFPercentage(-3), textAlign: "right", width: "70%", fontSize: RFPercentage(4), color: Colors.white, fontFamily: "Philosopher_700Bold" }} >
                                         {item.title}
                                     </Text>
@@ -109,7 +110,7 @@ function HomeScreen(props) {
                                             <Text style={{ fontSize: RFPercentage(2.7), color: Colors.primary, fontWeight: Platform.OS === "android" ? "bold" : "700" }} >{item.price}</Text>
                                         </View>
                                     </View>
-                                </View>
+                                </TouchableOpacity>
                             </ImageBackground>
                         ))}
                     </ScrollView>

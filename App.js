@@ -60,7 +60,7 @@ export default function App() {
 
   // screeen which have drawer icon
   const HomeDrawer = () => {
-    return <Drawer.Navigator initialRouteName="PaymentMethodScreen" drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
+    return <Drawer.Navigator initialRouteName="HomeScreen" drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       <Drawer.Screen name="ChooseStore" component={ChooseStore} />
       <Drawer.Screen name="Store1Screen" component={Store1Screen} />
