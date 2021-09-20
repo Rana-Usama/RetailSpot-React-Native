@@ -32,6 +32,8 @@ function InputField({
   secure = false,
   handleClear = false,
   leftIconName = '',
+  autoFocus = false,
+  searchMarginLeft = null,
   ...otherProps
 }) {
   const [eyeIcon, setEyeIcon] = useState(false);
@@ -41,11 +43,11 @@ function InputField({
 
 
       {leftIconName ? (
-        <TouchableOpacity onPress={() => handleFeild('')} style={{ marginRight: RFPercentage(1) }} >
+        <TouchableOpacity onPress={() => handleFeild('')} style={{ marginLeft: searchMarginLeft, marginRight: RFPercentage(1) }} >
           <Feather
             color="#2C3849"
             style={{ transform: [{ scaleX: -1 }] }}
-            size={RFPercentage(3.4)}
+            size={RFPercentage(2.5)}
             name={leftIconName}
           />
         </TouchableOpacity>
@@ -58,6 +60,7 @@ function InputField({
         onResponderStart={onTouchStart}
         onEndEditing={onTouchEnd}
         value={value}
+        autoFocus={autoFocus}
         keyboardType={keyboardType}
         secureTextEntry={secure && !eyeIcon}
         textAlign={textCenter}

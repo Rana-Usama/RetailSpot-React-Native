@@ -30,6 +30,12 @@ import DashboardScreen from './app/screens/DashboardScreen';
 import BuyerProfileScreen from './app/screens/BuyerProfileScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import ProfileScreen from './app/screens/ProfileScreen';
+import ChooseStore from './app/screens/ChooseStore';
+import Store1Screen from './app/screens/Store1Screen';
+import Store2Screen from './app/screens/Store2Screen';
+import Order1Screen from './app/screens/Order1Screen';
+import CartDetails2 from './app/screens/CartDetails2';
+import CalendarScreen from './app/screens/CalendarScreen';
 
 import AppDrawer from './app/components/common/AppDrawer';
 import MyProfileScreen from './app/screens/MyProfileScreen';
@@ -54,8 +60,14 @@ export default function App() {
 
   // screeen which have drawer icon
   const HomeDrawer = () => {
-    return <Drawer.Navigator drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />} initialRouteName="HomeScreen" >
+    return <Drawer.Navigator initialRouteName="Order1Screen" drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Drawer.Screen name="ChooseStore" component={ChooseStore} />
+      <Drawer.Screen name="Store1Screen" component={Store1Screen} />
+      <Drawer.Screen name="Store2Screen" component={Store2Screen} />
+      <Drawer.Screen name="Order1Screen" component={Order1Screen} />
+      <Drawer.Screen name="CartDetails2" component={CartDetails2} />
+      <Drawer.Screen name="CalendarScreen" component={CalendarScreen} />
       <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
       <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
       <Stack.Screen name="MyShelvesScreen" component={MyShelvesScreen} />

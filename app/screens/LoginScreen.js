@@ -83,17 +83,16 @@ function LoginScreen(props) {
           ))}
         </View>
 
-        {/* Login Button */}
-        <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(2) }}>
-          <MyAppButton
-            title="Login"
-            onPress={() => handleLogin()}
-            backgroundColor={Colors.primary}
-            color={Colors.white}
-            width={"85%"}
-          />
-        </View>
-
+      {/* Login Button */}
+      <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(2) }}>
+        <MyAppButton
+          title="Login"
+          onPress={() => handleLogin()}
+          backgroundColor={Colors.primary}
+          color={Colors.white}
+          width={"85%"}
+        />
+      </View>
         {/* forget password */}
         <View style={{ marginTop: RFPercentage(2), width: "90%", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center" }}>
           <TouchableOpacity>
