@@ -32,6 +32,7 @@ import HomeScreen from './app/screens/HomeScreen';
 import ProfileScreen from './app/screens/ProfileScreen';
 import ChooseStore from './app/screens/ChooseStore';
 import Store1Screen from './app/screens/Store1Screen';
+import Store2Screen from './app/screens/Store2Screen';
 
 import AppDrawer from './app/components/common/AppDrawer';
 
@@ -53,10 +54,11 @@ export default function App() {
 
   // screeen which have drawer icon
   const HomeDrawer = () => {
-    return <Drawer.Navigator initialRouteName="Store1Screen" drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
+    return <Drawer.Navigator initialRouteName="Store2Screen" drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       <Drawer.Screen name="ChooseStore" component={ChooseStore} />
       <Drawer.Screen name="Store1Screen" component={Store1Screen} />
+      <Drawer.Screen name="Store2Screen" component={Store2Screen} />
     </Drawer.Navigator>
   }
 
