@@ -60,7 +60,7 @@ export default function App() {
 
   // screeen which have drawer icon
   const HomeDrawer = () => {
-    return <Drawer.Navigator initialRouteName="Order1Screen" drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
+    return <Drawer.Navigator initialRouteName="PaymentMethodScreen" drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />}  >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
       <Drawer.Screen name="ChooseStore" component={ChooseStore} />
       <Drawer.Screen name="Store1Screen" component={Store1Screen} />
@@ -68,10 +68,11 @@ export default function App() {
       <Drawer.Screen name="Order1Screen" component={Order1Screen} />
       <Drawer.Screen name="CartDetails2" component={CartDetails2} />
       <Drawer.Screen name="CalendarScreen" component={CalendarScreen} />
-      <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
-      <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
-      <Stack.Screen name="MyShelvesScreen" component={MyShelvesScreen} />
-      <Stack.Screen name="MyShelvesBookedScreen" component={MyShelvesBookedScreen} />
+      <Drawer.Screen name="DashboardScreen" component={DashboardScreen} />
+      <Drawer.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
+      <Drawer.Screen name="MyShelvesScreen" component={MyShelvesScreen} />
+      <Drawer.Screen name="MyShelvesBookedScreen" component={MyShelvesBookedScreen} />
+      <Drawer.Screen name="PaymentMethodScreen" component={PaymentMethodScreen} />
     </Drawer.Navigator>
   }
 
@@ -81,9 +82,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="PaymentMethodScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="HomeDrawer">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
-        <Stack.Screen name="PaymentMethodScreen" component={PaymentMethodScreen} />
         <Stack.Screen name="MyProfileEditScreen" component={MyProfileEditScreen} />
         <Stack.Screen name="MyProfileScreen" component={MyProfileScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
