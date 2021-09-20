@@ -251,6 +251,13 @@ function Store1Screen(props) {
                             <MaterialCommunityIcons name="chevron-down" size={RFPercentage(3)} color={Colors.white} />
                         </TouchableOpacity>
                     </View>
+
+                    <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(2) }}>
+                        <Text style={{ fontSize: RFPercentage(2.4), marginLeft: RFPercentage(1), color: Colors.white }} >x1 Prime Spot</Text>
+                    </View>
+                    <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(0.5) }}>
+                        <Text style={{ fontSize: RFPercentage(2), fontFamily: "Quicksand_400Regular", marginLeft: RFPercentage(1), color: Colors.white }} >x1 In-store Promotion</Text>
+                    </View>
                 </View>
             </Modal>
 
