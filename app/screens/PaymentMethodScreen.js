@@ -15,9 +15,7 @@ function PaymentMethodScreen(props) {
     const [indicator, showIndicator] = useState(false);
 
     const handleLogin = () => {
-        setModel(true);
         showIndicator(true);
-
         try {
 
             // API integration will come here
