@@ -16,13 +16,16 @@ import pop1 from "../../assets/images/pop1.png"
 import pop3 from "../../assets/images/pop3.png"
 import sunPer from "../../assets/images/sunPer.png"
 import MyAppButton from '../components/common/MyAppButton';
+import InputField from '../components/common/InputField';
 
 const { width, height } = Dimensions.get('window');
 
 function Store1Screen(props) {
 
     const [showCartButton, setShowCartButton] = useState(false)
+    const [showSunModel, setShowSunModel] = useState(false)
     const [showCartDetails, setShowCartDetails] = useState(false)
+    const [coupen, setCoupen] = useState('')
     const [popular, setPopular] = useState([
         {
             id: 0,
@@ -80,6 +83,7 @@ function Store1Screen(props) {
     const getCart = async () => {
         try {
             let res = await AsyncStorage.getItem("cart");
+            console.log(res)
             res = JSON.parse(res);
             if (res.length > 0) {
                 setShowCartButton(true)
@@ -91,12 +95,28 @@ function Store1Screen(props) {
         }
     }
 
-    useEffect(() => {
-        getCart()
-        return () => {
-            setShowCartButton(false)
+    const removeItem = async () => {
+        try {
+            await AsyncStorage.removeItem("cart");
+        } catch (error) {
+
         }
-    }, [])
+    }
+
+    useEffect(() => {
+        // getCart()
+
+        try {
+            if (props.route.params.data) {
+                setShowCartButton(true)
+            } else {
+                setShowCartButton(false);
+            }
+
+        } catch (error) {
+
+        }
+    }, [props.route.params])
 
     return (
         <Screen barStyle="dark-content" style={styles.container}>
@@ -146,9 +166,9 @@ function Store1Screen(props) {
                                 14b Muritala Eletu Way, Lekki
                             </Text>
                         </View>
-                        <View style={{ marginRight: RFPercentage(2) }} >
+                        <TouchableOpacity onPress={() => setShowSunModel(!showSunModel)} style={{ marginRight: RFPercentage(2) }} >
                             <Image source={sunPer} style={{ width: RFPercentage(3), height: RFPercentage(3) }} />
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                     <View style={{ marginTop: RFPercentage(0.3), flexDirection: "row", justifyContent: "space-between", width: "85%", marginLeft: "7.5%", alignItems: "center" }} >
@@ -201,7 +221,7 @@ function Store1Screen(props) {
 
                     <ScrollView showsHorizontalScrollIndicator={false} style={{ marginTop: RFPercentage(1.5) }}>
                         {recommended.map((item, index) => (
-                            <View key={index} style={{
+                            <TouchableOpacity onPress={() => props.navigation.navigate("Order1Screen")} activeOpacity={0.9} key={index} style={{
                                 width: "90%",
                                 height: RFPercentage(12),
                                 borderRadius: 14,
@@ -221,7 +241,7 @@ function Store1Screen(props) {
                                         <Text style={{ color: "#F5C03D", marginLeft: RFPercentage(2) }} >{item.percentage}</Text>
                                     </View>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         ))}
                     </ScrollView>
                 </View>
@@ -275,6 +295,45 @@ function Store1Screen(props) {
                             width={RFPercentage(19)}
                             padding={RFPercentage(1.5)}
                         />
+                    </View>
+                </View>
+            </Modal>
+
+            {/* s0n model */}
+            <Modal visible={showSunModel} transparent={true}  >
+                <View style={{ width: "100%", justifyContent: "flex-start", alignItems: "center", borderTopLeftRadius: RFPercentage(7), borderTopRightRadius: RFPercentage(7), marginTop: (height - RFPercentage(25)), backgroundColor: Colors.white, height: RFPercentage(25) }} >
+                    <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(3) }}>
+                        <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                        </View>
+                        <TouchableOpacity onPress={() => setShowSunModel(false)} >
+                            <MaterialCommunityIcons name="chevron-down" size={RFPercentage(3)} color={"#50555C"} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(2) }}>
+                        <Text style={{ fontSize: RFPercentage(2.4), marginLeft: RFPercentage(1), color: "#50555C" }} >Promotion: First time - Discount 30%</Text>
+                    </View>
+
+
+                    <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(1) }}>
+                        <View style={{ flexDirection: "row", justifyContent: "flex-start", alignItems: "center" }} >
+                            <Text style={{ marginRight: RFPercentage(2), fontSize: RFPercentage(2.4), marginLeft: RFPercentage(1), color: "#50555C" }} >Coupon code:</Text>
+                            <InputField
+                                textCenter={"center"}
+                                placeholder={"RSPOT"}
+                                handleFeild={(text) => setCoupen(text)}
+                                value={coupen}
+                                width={"40%"}
+                                height={RFPercentage(4.5)}
+                                borderRadius={RFPercentage(1)}
+                                placeholderColor={"white"}
+                                color={"white"}
+                                backgroundColor={"#EB1700"}
+                            />
+                            <TouchableOpacity style={{ justifyContent: "center", alignItems: "center", borderRadius: RFPercentage(0.5), width: RFPercentage(4), height: RFPercentage(4), backgroundColor: "#EB1700" }} >
+                                <MaterialCommunityIcons name="content-copy" size={RFPercentage(2.5)} color="white" />
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </Modal>

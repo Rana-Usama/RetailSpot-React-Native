@@ -106,7 +106,7 @@ function CartDetails2(props) {
                 </View>
             </ScrollView>
             <View style={{ justifyContent: "space-around", alignItems: "center", flexDirection: "row", position: "absolute", top: (height - RFPercentage(12)), width: "99%", height: RFPercentage(8), borderRadius: RFPercentage(10), backgroundColor: Colors.primary }} >
-                <TouchableOpacity>
+                <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("PaymentMethodScreen")} >
                     <Text style={{ color: Colors.white, fontSize: RFPercentage(2.8) }} >MAKE PAYMENT</Text>
                 </TouchableOpacity>
             </View>

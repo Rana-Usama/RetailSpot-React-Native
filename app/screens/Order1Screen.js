@@ -168,8 +168,9 @@ function Order1Screen(props) {
 
     const handleAddItem = async () => {
         try {
+            setModalVisible(false)
             await AsyncStorage.setItem("cart", JSON.stringify([{ data: "" }]))
-            props.navigation.navigate("Store1Screen")
+            props.navigation.navigate("Store1Screen", { data: true })
         } catch (error) {
             console.log(error)
         }
