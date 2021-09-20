@@ -8,7 +8,7 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 //config
 import Colors from '../../config/Colors';
 
-function NavTitlesAndIcon({ mainTitle, sideTitle, icon = false }) {
+function NavTitlesAndIcon({ onPress = () => { }, mainTitle, sideTitle, icon = false }) {
     return (
         <View style={{ width: '90%', marginTop: RFPercentage(9), alignItems: 'center', justifyContent: 'center' }}>
             {/* BackIcon */}
@@ -21,7 +21,7 @@ function NavTitlesAndIcon({ mainTitle, sideTitle, icon = false }) {
                         fontSize: RFPercentage(3.8),
                         fontWeight: "bold",
                     }}
-                // onPress={() => props.navigation.navigate("LoginScreen")}
+                    onPress={onPress}
                 />
             </TouchableOpacity>
             {/* Main Heading */}

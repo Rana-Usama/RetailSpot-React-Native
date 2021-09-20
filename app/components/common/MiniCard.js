@@ -6,19 +6,21 @@ import { SimpleLineIcons } from '@expo/vector-icons';
 //config
 import Colors from '../../config/Colors';
 
-function MiniCard({ number = true, title1, title2 }) {
+function MiniCard({ onPressTitle = () => { }, number = true, title1, title2, onPressImage = () => { } }) {
     return (
 
         <View style={{ flexDirection: 'row', width: '90%', backgroundColor: Colors.white, alignItems: 'center', justifyContent: 'flex-start', height: RFPercentage(15), marginTop: RFPercentage(1.3), borderRadius: RFPercentage(2) }}>
             {/* Image */}
-            <View style={{ marginLeft: RFPercentage(1.5) }}>
+            <TouchableOpacity onPress={onPressImage} style={{ marginLeft: RFPercentage(1.5) }}>
                 <Image style={{ width: RFPercentage(10), height: RFPercentage(7) }} source={require('../../../assets/images/building.png')} />
-            </View>
+            </TouchableOpacity>
             {/* Titles */}
             <View style={{ left: RFPercentage(1.5), marginBottom: RFPercentage(1.4) }}>
-                <Text style={{ fontFamily: 'Quicksand_400Regular', fontSize: RFPercentage(2.2) }}>
-                    {title1}
-                </Text>
+                <TouchableOpacity onPress={onPressTitle} >
+                    <Text style={{ fontFamily: 'Quicksand_400Regular', fontSize: RFPercentage(2.2) }}>
+                        {title1}
+                    </Text>
+                </TouchableOpacity>
                 <Text style={{ fontFamily: 'Quicksand_400Regular', fontSize: RFPercentage(1.75), color: Colors.lightestGrey }}>
                     {title2}
                 </Text>

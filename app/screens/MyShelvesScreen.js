@@ -11,6 +11,8 @@ import BottomTab from '../components/common/BottomTab';
 
 //config
 import Colors from '../config/Colors';
+import MyShelvesBookedScreen from './MyShelvesBookedScreen';
+import ViewShelfEditScreen from './ViewShelfEditScreen';
 
 
 function MyShelvesScreen(props) {
@@ -42,13 +44,13 @@ function MyShelvesScreen(props) {
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     {/*Top Buttons */}
-                    <TwoButtonsContainer buttonTitle1="Available" buttonTitle2="Booked" />
+                    <TwoButtonsContainer buttonTitle1="Available" buttonTitle2="Booked" onPressButton2={() => props.navigation.navigate("MyShelvesBookedScreen")} />
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     {/* Listings */}
                     <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', top: RFPercentage(1), marginBottom: RFPercentage(35) }}>
                         {data.map((item, i) => (
-                            <MiniCard key={i} title1={item.mainTitle} title2={item.subTitle} />
+                            <MiniCard onPressImage={() => props.navigation.navigate("ViewShelfEditScreen")} onPressTitle={() => props.navigation.navigate("ViewShelfEditScreen")} key={i} title1={item.mainTitle} title2={item.subTitle} />
                         ))}
 
                     </View>

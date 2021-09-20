@@ -62,7 +62,7 @@ function MyBookings(props) {
                 </View>
                 {/* Top Buttons */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    <TwoButtonsContainer buttonTitle1="On-going" buttonTitle2="All" />
+                    <TwoButtonsContainer onPressButton2={() => props.navigation.navigate("MyShelvesBookedScreen")} buttonTitle1="On-going" buttonTitle2="All" />
                 </View>
                 {/* Notifications Listings */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%', top: RFPercentage(3), marginBottom: RFPercentage(28) }}>

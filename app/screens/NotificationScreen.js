@@ -54,7 +54,7 @@ function NotificationScreen(props) {
 
             {/* Icon */}
             <TouchableOpacity style={{ position: 'absolute', top: RFPercentage(10.2), left: RFPercentage(4) }}>
-                <AntDesign name="bars" size={RFPercentage(4)} color={Colors.iconOrange} />
+                <Image source={require('../../assets/images/noti.png')} />
             </TouchableOpacity>
 
             {/* Listings */}

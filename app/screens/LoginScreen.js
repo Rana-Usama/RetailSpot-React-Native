@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { Text, View, StyleSheet, Image, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 
 //config
@@ -49,35 +49,39 @@ function LoginScreen(props) {
   };
 
   return (
-    <View style={styles.container}>
-      <LoadingModal show={indicator} />
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={{ flex: 1 }}
+    >
+      <View style={styles.container}>
+        <LoadingModal show={indicator} />
 
-      {/* Logo */}
-      <View style={{ marginBottom: RFPercentage(3) }}>
-        <Image source={require("../../assets/images/logo.png")} />
-      </View>
+        {/* Logo */}
+        <View style={{ marginBottom: RFPercentage(3) }}>
+          <Image source={require("../../assets/images/logo.png")} />
+        </View>
 
 
-      {/*  Store Owner's App Text */}
-      <Text style={{ color: Colors.lightBlack, fontSize: RFPercentage(1.9) }}>
-        Store Owner's App
-      </Text>
+        {/*  Store Owner's App Text */}
+        <Text style={{ color: Colors.lightBlack, fontSize: RFPercentage(1.9) }}>
+          Store Owner's App
+        </Text>
 
-      {/* InputFields */}
-      <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(7) }}>
-        {inputField.map((item, i) => (
-          <InputField
-            key={i}
-            textCenter={"center"}
-            secure={item.secure}
-            placeholder={item.placeholder}
-            handleFeild={(text) => handleChange(text, i)}
-            value={item.value}
-            width={"85%"}
-            borderRadius={RFPercentage(10)}
-          />
-        ))}
-      </View>
+        {/* InputFields */}
+        <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(7) }}>
+          {inputField.map((item, i) => (
+            <InputField
+              key={i}
+              textCenter={"center"}
+              secure={item.secure}
+              placeholder={item.placeholder}
+              handleFeild={(text) => handleChange(text, i)}
+              value={item.value}
+              width={"85%"}
+              borderRadius={RFPercentage(10)}
+            />
+          ))}
+        </View>
 
       {/* Login Button */}
       <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(2) }}>
@@ -89,25 +93,26 @@ function LoginScreen(props) {
           width={"85%"}
         />
       </View>
+        {/* forget password */}
+        <View style={{ marginTop: RFPercentage(2), width: "90%", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center" }}>
+          <TouchableOpacity>
+            <Text style={{ fontSize: RFPercentage(2), color: Colors.inputFieldBorder, fontWeight: "400" }}>
+              Forget Password
+            </Text>
+          </TouchableOpacity>
 
-      {/* forget password */}
-      <View style={{ marginTop: RFPercentage(2), width: "90%", flexDirection: "row", justifyContent: "space-evenly", alignItems: "center" }}>
-        <TouchableOpacity>
-          <Text style={{ fontSize: RFPercentage(2), color: Colors.inputFieldBorder, fontWeight: "400" }}>
-            Forget Password
-          </Text>
-        </TouchableOpacity>
 
-        <View style={{ height: RFPercentage(2.5), backgroundColor: "rgba(195, 211, 212, 0.5)", width: 1, }}></View>
+          <View style={{ height: RFPercentage(2.5), backgroundColor: "rgba(195, 211, 212, 0.5)", width: 1, }}></View>
 
-        {/* create account */}
-        <TouchableOpacity onPress={() => props.navigation.navigate("SignupScreen")} >
-          <Text style={{ fontSize: RFPercentage(2), color: Colors.inputFieldBorder, fontWeight: "400" }}>
-            Create an account
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </View >
+          {/* create account */}
+          <TouchableOpacity onPress={() => props.navigation.navigate("SignupScreen")} >
+            <Text style={{ fontSize: RFPercentage(2), color: Colors.inputFieldBorder, fontWeight: "400" }}>
+              Create an account
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View >
+    </KeyboardAvoidingView>
   );
 }
 

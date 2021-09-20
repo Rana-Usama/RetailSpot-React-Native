@@ -25,7 +25,7 @@ function MyShelvesBookedScreen(props) {
             <ScrollView style={{ backgroundColor: Colors.backgroundColor, flex: 1, width: '100%' }} >
                 {/* Nav Icon and titles */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                    <NavTitlesAndIcon mainTitle="My Spots" sideTitle="BOOK" />
+                    <NavTitlesAndIcon onPress={() => props.navigation.navigate("MyShelvesScreen")} mainTitle="My Spots" sideTitle="BOOK" />
                 </View>
                 {/*Top Buttons */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
@@ -34,7 +34,7 @@ function MyShelvesBookedScreen(props) {
                 {/* Listings */}
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                     {data.map((item, i) => (
-                        <MiniCard key={i} title1={item.mainTitle} title2={item.subTitle} />
+                        <MiniCard number={false} key={i} title1={item.mainTitle} title2={item.subTitle} />
                     ))}
                 </View>
             </ScrollView>

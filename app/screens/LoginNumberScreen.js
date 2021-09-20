@@ -60,6 +60,7 @@ function LoginNumberScreen(props) {
 
 
     return (
+
         <View style={{ flex: 1, alignItems: 'center' }}>
             <LoadingModal show={indicator} />
 

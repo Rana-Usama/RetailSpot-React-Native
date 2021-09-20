@@ -38,6 +38,9 @@ import CartDetails2 from './app/screens/CartDetails2';
 import CalendarScreen from './app/screens/CalendarScreen';
 
 import AppDrawer from './app/components/common/AppDrawer';
+import MyProfileScreen from './app/screens/MyProfileScreen';
+import MyProfileEditScreen from './app/screens/MyProfileEditScreen';
+import PaymentMethodScreen from './app/screens/PaymentMethodScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -65,6 +68,10 @@ export default function App() {
       <Drawer.Screen name="Order1Screen" component={Order1Screen} />
       <Drawer.Screen name="CartDetails2" component={CartDetails2} />
       <Drawer.Screen name="CalendarScreen" component={CalendarScreen} />
+      <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+      <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
+      <Stack.Screen name="MyShelvesScreen" component={MyShelvesScreen} />
+      <Stack.Screen name="MyShelvesBookedScreen" component={MyShelvesBookedScreen} />
     </Drawer.Navigator>
   }
 
@@ -74,25 +81,23 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="LoginScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="PaymentMethodScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="PaymentMethodScreen" component={PaymentMethodScreen} />
+        <Stack.Screen name="MyProfileEditScreen" component={MyProfileEditScreen} />
+        <Stack.Screen name="MyProfileScreen" component={MyProfileScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="HomeDrawer" component={HomeDrawer} />
-
-        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
-        <Stack.Screen name="BuyerProfileScreen" component={BuyerProfileScreen} />
         <Stack.Screen name="NotificationScreen" component={NotificationScreen} />
         <Stack.Screen name="MyBookings" component={MyBookings} />
         <Stack.Screen name="ViewShelfEditScreen" component={ViewShelfEditScreen} />
-        <Stack.Screen name="MyShelvesScreen" component={MyShelvesScreen} />
-        <Stack.Screen name="MyShelvesBookedScreen" component={MyShelvesBookedScreen} />
         <Stack.Screen name="SignupScreen" component={SignupScreen} />
         <Stack.Screen name="LoginNumberScreen" component={LoginNumberScreen} />
         <Stack.Screen name="SentCodeScreen" component={SentCodeScreen} />
         <Stack.Screen name="TypeCode" component={TypeCode} />
         <Stack.Screen name="SignupStep2" component={SignupStep2} />
-        <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

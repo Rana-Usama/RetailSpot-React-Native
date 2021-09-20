@@ -21,19 +21,19 @@ function AppDrawer({ navigation }) {
             id: 0,
             label: "Dashboard",
             image: Dashboard,
-            path: "Screen name to navigate"
+            path: "DashboardScreen"
         },
         {
             id: 1,
             label: "Shelves",
             image: shelves,
-            path: "Screen name to navigate"
+            path: "MyShelvesScreen"
         },
         {
             id: 2,
             label: "Bookings",
             image: bookings,
-            path: "Screen name to navigate"
+            path: "MyShelvesBookedScreen"
         },
         {
             id: 3,

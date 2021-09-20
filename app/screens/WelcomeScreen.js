@@ -13,8 +13,8 @@ function WelcomeScreen(props) {
     return (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center", }}  >
             {/* PathImage */}
-            <View style={{ position: "absolute", top: 0, right: 0 }}>
-                <Image source={require("../../assets/images/path2.png")} style={{ width, height: RFPercentage(40) }} />
+            <View style={{ position: "absolute", top: 0, right: 0, width: '100%' }}>
+                <Image source={require("../../assets/images/path2.png")} style={{ width: "100%", height: RFPercentage(50) }} />
             </View>
 
             {/* Text */}
