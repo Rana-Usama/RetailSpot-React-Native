@@ -34,6 +34,7 @@ import ProfileScreen from './app/screens/ProfileScreen';
 import AppDrawer from './app/components/common/AppDrawer';
 import MyProfileScreen from './app/screens/MyProfileScreen';
 import MyProfileEditScreen from './app/screens/MyProfileEditScreen';
+import PaymentMethodScreen from './app/screens/PaymentMethodScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -68,8 +69,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="MyProfileScreen">
+      <Stack.Navigator headerMode="none" initialRouteName="PaymentMethodScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="PaymentMethodScreen" component={PaymentMethodScreen} />
         <Stack.Screen name="MyProfileEditScreen" component={MyProfileEditScreen} />
         <Stack.Screen name="MyProfileScreen" component={MyProfileScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />

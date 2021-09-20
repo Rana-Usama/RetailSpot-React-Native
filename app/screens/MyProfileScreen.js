@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { ImageBackground, View, Text, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize';
-import LoadingModal from './../components/common/LoadingModel';
 
 //config
 import Colors from '../config/Colors';
 
 //cpomponent
 import Screen from './../components/Screen';
-import MyProfileEditScreen from './MyProfileEditScreen';
 import MyAppButton from './../components/common/MyAppButton';
+import LoadingModal from './../components/common/LoadingModel';
 
 
 function MyProfileScreen(props) {

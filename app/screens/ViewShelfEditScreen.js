@@ -14,8 +14,6 @@ import LoadingModal from './../components/common/LoadingModel';
 //config
 import Colors from '../config/Colors';
 import { Dimensions } from 'react-native';
-import { Quicksand_400Regular } from '@expo-google-fonts/quicksand';
-import { TextInput } from 'react-native-gesture-handler';
 import SmallInputField from '../components/common/SmallInputField';
 
 
