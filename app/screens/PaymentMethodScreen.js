@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, ScrollView, TouchableOpacity, Modal } from 'react-native'
 import { RFPercentage } from 'react-native-responsive-fontsize';
-
+import { Ionicons } from "@expo/vector-icons";
 
 //config
 import Colors from '../config/Colors';
@@ -33,6 +33,18 @@ function PaymentMethodScreen(props) {
             <LoadingModal show={indicator} />
             {/* Header */}
             <View elevation={20} style={styles.boxWithShadow}>
+                {/* BackIcon */}
+                <TouchableOpacity style={{ position: 'absolute', alignSelf: 'flex-start', marginLeft: RFPercentage(3) }}>
+                    <Ionicons
+                        name="arrow-back"
+                        size={40}
+                        color={Colors.black}
+                        style={{
+                            fontSize: RFPercentage(3.8),
+                            fontWeight: "bold",
+                        }}
+                    />
+                </TouchableOpacity>
                 <Text style={{ color: Colors.black, fontFamily: 'Philosopher_700Bold', fontSize: RFPercentage(3) }}>
                     Payment Methods
                 </Text>
