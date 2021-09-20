@@ -32,6 +32,8 @@ import HomeScreen from './app/screens/HomeScreen';
 import ProfileScreen from './app/screens/ProfileScreen';
 
 import AppDrawer from './app/components/common/AppDrawer';
+import MyProfileScreen from './app/screens/MyProfileScreen';
+import MyProfileEditScreen from './app/screens/MyProfileEditScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -66,8 +68,10 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="HomeDrawer">
+      <Stack.Navigator headerMode="none" initialRouteName="MyProfileScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
+        <Stack.Screen name="MyProfileEditScreen" component={MyProfileEditScreen} />
+        <Stack.Screen name="MyProfileScreen" component={MyProfileScreen} />
         <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
