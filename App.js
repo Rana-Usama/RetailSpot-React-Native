@@ -30,6 +30,7 @@ import DashboardScreen from './app/screens/DashboardScreen';
 import BuyerProfileScreen from './app/screens/BuyerProfileScreen';
 import HomeScreen from './app/screens/HomeScreen';
 import ProfileScreen from './app/screens/ProfileScreen';
+import ChooseStore from './app/screens/ChooseStore';
 
 import AppDrawer from './app/components/common/AppDrawer';
 
@@ -53,6 +54,7 @@ export default function App() {
   const HomeDrawer = () => {
     return <Drawer.Navigator drawerType={"front"} overlayColor="transparent" edgeWidth={100} drawerStyle={{ backgroundColor: Colors.white, width: "75%" }} drawerContent={(props) => <AppDrawer {...props} />} initialRouteName="HomeScreen" >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+      <Drawer.Screen name="ChooseStore" component={ChooseStore} />
     </Drawer.Navigator>
   }
 

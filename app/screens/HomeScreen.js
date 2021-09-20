@@ -88,7 +88,7 @@ function HomeScreen(props) {
                             secure={false}
                             placeholder={'Search for spot…'}
                             placeholderColor={Colors.grey}
-                            onTouchStart={() => console.log("start")}
+                            onTouchStart={() => props.navigation.navigate('ChooseStore')}
                             width={"100%"}
                             handleFeild={() => null}
                             backgroundColor={Colors.grey1}
