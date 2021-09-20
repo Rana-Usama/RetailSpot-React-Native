@@ -15,6 +15,7 @@ import pop2 from "../../assets/images/pop2.png"
 
 function ChooseStore(props) {
 
+    const [searchValue, setSearchValue] = useState('')
     const [recommended, setRecommended] = useState([
         {
             id: 0,
@@ -83,8 +84,10 @@ function ChooseStore(props) {
                             onTouchStart={() => console.log("start")}
                             width={"65%"}
                             autoFocus={true}
-                            handleFeild={() => null}
+                            value={searchValue}
+                            handleFeild={(text) => setSearchValue(text)}
                             backgroundColor={Colors.grey1}
+                            handleClear={true}
                             fontSize={RFPercentage(2.2)}
                             searchMarginLeft={RFPercentage(1)}
                             leftIconName={'search'}
