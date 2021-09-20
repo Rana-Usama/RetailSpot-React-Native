@@ -15,6 +15,7 @@ import pop2 from "../../assets/images/pop2.png"
 import pop1 from "../../assets/images/pop1.png"
 import pop3 from "../../assets/images/pop3.png"
 import sunPer from "../../assets/images/sunPer.png"
+import MyAppButton from '../components/common/MyAppButton';
 
 const { width, height } = Dimensions.get('window');
 
@@ -223,8 +224,6 @@ function Store1Screen(props) {
                             </View>
                         ))}
                     </ScrollView>
-
-
                 </View>
             </ScrollView>
 
@@ -257,6 +256,22 @@ function Store1Screen(props) {
                     </View>
                     <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(0.5) }}>
                         <Text style={{ fontSize: RFPercentage(2), fontFamily: "Quicksand_400Regular", marginLeft: RFPercentage(1), color: Colors.white }} >x1 In-store Promotion</Text>
+                    </View>
+
+                    <View style={{ justifyContent: "space-between", width: "80%", flexDirection: "row", marginTop: RFPercentage(3) }}>
+                        <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                            <Text style={{ fontFamily: "Quicksand_400Regular", fontSize: RFPercentage(2.4), marginLeft: RFPercentage(1), color: Colors.white }} >Total</Text>
+                            <Text style={{ fontSize: RFPercentage(2.4), marginLeft: RFPercentage(2.5), color: Colors.white }} >₦ 55,500</Text>
+                        </View>
+
+                        <MyAppButton
+                            title="BOOK NOW"
+                            backgroundColor={Colors.white}
+                            color={Colors.black}
+                            onPress={() => console.log("book now")}
+                            width={RFPercentage(19)}
+                            padding={RFPercentage(1.5)}
+                        />
                     </View>
                 </View>
             </Modal>

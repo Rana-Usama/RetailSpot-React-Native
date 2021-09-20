@@ -241,7 +241,7 @@ function Order1Screen(props) {
                     </View>
 
                     {/* Add ONS */}
-                    <View style={{ marginBottom: RFPercentage(5), width: "100%", justifyContent: "center", alignItems: "center", marginTop: RFPercentage(4), }} >
+                    <View style={{ marginBottom: RFPercentage(10), width: "100%", justifyContent: "center", alignItems: "center", marginTop: RFPercentage(4), }} >
                         <View style={{ width: "90%", marginLeft: RFPercentage(2) }} >
                             <Text style={{ fontFamily: "Philosopher_700Bold", fontSize: RFPercentage(2.5) }} >
                                 Add-ons
