@@ -82,7 +82,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="HomeDrawer">
+      <Stack.Navigator headerMode="none" initialRouteName="SplashScreen">
         <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="MyProfileEditScreen" component={MyProfileEditScreen} />
         <Stack.Screen name="MyProfileScreen" component={MyProfileScreen} />
