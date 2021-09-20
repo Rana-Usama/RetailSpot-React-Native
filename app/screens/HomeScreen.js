@@ -69,8 +69,6 @@ function HomeScreen(props) {
             price: "₦170",
             image: pop2
         },
-
-
     ])
 
     return (
