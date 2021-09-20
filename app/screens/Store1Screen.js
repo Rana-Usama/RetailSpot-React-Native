@@ -268,7 +268,10 @@ function Store1Screen(props) {
                             title="BOOK NOW"
                             backgroundColor={Colors.white}
                             color={Colors.black}
-                            onPress={() => console.log("book now")}
+                            onPress={() => {
+                                setShowCartDetails(false)
+                                props.navigation.navigate("CartDetails2")
+                            }}
                             width={RFPercentage(19)}
                             padding={RFPercentage(1.5)}
                         />

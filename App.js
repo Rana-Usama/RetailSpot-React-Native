@@ -34,6 +34,8 @@ import ChooseStore from './app/screens/ChooseStore';
 import Store1Screen from './app/screens/Store1Screen';
 import Store2Screen from './app/screens/Store2Screen';
 import Order1Screen from './app/screens/Order1Screen';
+import CartDetails2 from './app/screens/CartDetails2';
+import CalendarScreen from './app/screens/CalendarScreen';
 
 import AppDrawer from './app/components/common/AppDrawer';
 
@@ -61,6 +63,8 @@ export default function App() {
       <Drawer.Screen name="Store1Screen" component={Store1Screen} />
       <Drawer.Screen name="Store2Screen" component={Store2Screen} />
       <Drawer.Screen name="Order1Screen" component={Order1Screen} />
+      <Drawer.Screen name="CartDetails2" component={CartDetails2} />
+      <Drawer.Screen name="CalendarScreen" component={CalendarScreen} />
     </Drawer.Navigator>
   }
 
