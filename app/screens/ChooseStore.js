@@ -40,6 +40,30 @@ function ChooseStore(props) {
             rating: 5,
             distance: "1.7km",
             image: pop2,
+        },
+        {
+            id: 3,
+            title: 'Ebeano Supermarket',
+            category: 'Food | Home | Health | Beauty',
+            rating: 5,
+            distance: "1.7km",
+            image: pop2,
+        },
+        {
+            id: 4,
+            title: 'Fresh Forte',
+            category: 'Groceries  | Health | Beauty',
+            rating: 5,
+            distance: "1.7km",
+            image: pop2,
+        },
+        {
+            id: 5,
+            title: 'Adiba Supermarket',
+            category: ' Home | Health | Beauty',
+            rating: 5,
+            distance: "1.7km",
+            image: pop2,
         }
     ])
 
@@ -62,10 +86,11 @@ function ChooseStore(props) {
                             handleFeild={() => null}
                             backgroundColor={Colors.grey1}
                             fontSize={RFPercentage(2.2)}
+                            searchMarginLeft={RFPercentage(1)}
                             leftIconName={'search'}
                             borderWidth={0}
                         />
-                        <TouchableOpacity style={{ marginLeft: RFPercentage(1), justifyContent: "center", alignItems: "center", borderRadius: RFPercentage(1), height: RFPercentage(6.5), backgroundColor: Colors.grey1, height: RFPercentage(6.5), width: RFPercentage(6.5), marginRight: RFPercentage(1) }} onPress={() => props.navigation.navigate("HomeScreen")} activeOpacity={0.5} >
+                        <TouchableOpacity onPress={() => console.log("Recording mic")} style={{ marginLeft: RFPercentage(1), justifyContent: "center", alignItems: "center", borderRadius: RFPercentage(1), height: RFPercentage(6.5), backgroundColor: Colors.grey1, height: RFPercentage(6.5), width: RFPercentage(6.5), marginRight: RFPercentage(1) }} activeOpacity={0.5} >
                             <MaterialCommunityIcons name="microphone" size={RFPercentage(3)} color={Colors.grey} />
                         </TouchableOpacity>
                     </View>

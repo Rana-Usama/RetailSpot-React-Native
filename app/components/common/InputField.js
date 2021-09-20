@@ -33,6 +33,7 @@ function InputField({
   handleClear = false,
   leftIconName = '',
   autoFocus = false,
+  searchMarginLeft = null,
   ...otherProps
 }) {
   const [eyeIcon, setEyeIcon] = useState(false);
@@ -42,7 +43,7 @@ function InputField({
 
 
       {leftIconName ? (
-        <TouchableOpacity onPress={() => handleFeild('')} style={{ marginRight: RFPercentage(1) }} >
+        <TouchableOpacity onPress={() => handleFeild('')} style={{ marginLeft: searchMarginLeft, marginRight: RFPercentage(1) }} >
           <Feather
             color="#2C3849"
             style={{ transform: [{ scaleX: -1 }] }}
